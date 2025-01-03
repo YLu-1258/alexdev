@@ -5,12 +5,13 @@ import MainDisplay from './components/MainDisplay';
 import BottomBar from './components/BottomBar';
 import './App.css';
 import { Tab, Page } from './components/types';
+import About from './content/portfolio/about';
 
 const App: React.FC = () => {
     const sidebarRef = useRef<HTMLDivElement>(null);
     const [isResizing, setIsResizing] = useState(false);
     const [sidebarWidth, setSidebarWidth] = useState(100);
-    const [tabs, setTabs] = useState<Tab[]>([]);
+    const [tabs, setTabs] = useState<Tab[]>([{"id": "0", "title": 'ℹ️About', "type": 'about', "content": <About />}]);
     const [activeTabId, setActiveTabId] = useState<string>("0");
     const appRef = useRef<HTMLDivElement>(null);
 
