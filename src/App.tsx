@@ -16,35 +16,35 @@ const App: React.FC = () => {
 
     const startResizing = React.useCallback(() => {
         setIsResizing(true);
-      }, []);
+    }, []);
     
-      const stopResizing = React.useCallback(() => {
+    const stopResizing = React.useCallback(() => {
         setIsResizing(false);
-      }, []);
+    }, []);
     
-      const resize = React.useCallback(
-        (mouseMoveEvent : any) => {
-          if (isResizing && sidebarRef.current) {
-            setSidebarWidth(
-              mouseMoveEvent.clientX -
-                sidebarRef.current.getBoundingClientRect().left
-            );
-          }
-        },
-        [isResizing]
-      );
+    const resize = React.useCallback(
+      (mouseMoveEvent : any) => {
+        if (isResizing && sidebarRef.current) {
+          setSidebarWidth(
+            mouseMoveEvent.clientX -
+              sidebarRef.current.getBoundingClientRect().left
+          );
+        }
+      },
+      [isResizing]
+    );
     
-      React.useEffect(() => {
+    React.useEffect(() => {
         window.addEventListener("mousemove", resize);
         window.addEventListener("mouseup", stopResizing);
         return () => {
-          window.removeEventListener("mousemove", resize);
-          window.removeEventListener("mouseup", stopResizing);
+            window.removeEventListener("mousemove", resize);
+            window.removeEventListener("mouseup", stopResizing);
         };
-      }, [resize, stopResizing]);
+    }, [resize, stopResizing]);
 
     const handleFileSelect = (file: { id: string; name: string; content: React.ReactNode }) => {
-      return file;
+        return file;
     };
 
     const handleCreateTab = async (page: Page) => {
@@ -69,19 +69,19 @@ const App: React.FC = () => {
             <Header />
             <div className="main-layout">
 
-                <div
+                {window.innerWidth > window.innerHeight && (
+                  <div
                     ref={sidebarRef}
                     className="app-sidebar"
                     style={{ width: sidebarWidth }}
                     onMouseDown={(e) => e.preventDefault()}
-                >
+                  >
                     <div className="app-sidebar-content">
-                        <FileTree onFileSelect={handleFileSelect} />
+                      <FileTree onFileSelect={handleFileSelect} />
                     </div>
                     <div className="app-sidebar-resizer" onMouseDown={startResizing} />
-                </div>
-
-
+                  </div>
+                )}
                 <MainDisplay
                     tabs={tabs}
                     setTabs={setTabs}

@@ -21,7 +21,7 @@ const FileTree: React.FC<FileTreeProps> = ({  }) => {
     };
 
     return (
-        <div className="">
+        <div className="filetree">
             {files.map(file => (
                 <div
                     key={file.id}

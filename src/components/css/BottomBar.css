@@ -3,48 +3,53 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 30px;
-    padding: 0;
-    background-color: #626262; /* Lighter color */
+    height: 30px; /* Adjust the height as needed */
+    background-color: #626262;
     display: flex;
-    align-items: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    align-items: stretch; /* Ensure children stretch to the full height */
     border-top: #007acc 3px solid;
     z-index: 1000;
 }
 
 .buttons-container {
     display: flex;
+    flex: 1;
+    justify-content: space-around;
     align-items: center;
+    max-width: 80%;
 }
 
 .button {
-    position: relative;
-    height: 30px;
-    padding: 0 30%;
-    font-size: 14px;
+    flex: 1; /* Ensure buttons take equal width */
+    height: 100%; /* Match the height of the bottom bar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    text-align: center;
     background-color: #007acc; /* Default color */
-    display: flex;
-    align-items: center;
-    margin: 0px -20px 0px 0px;
-    clip-path: polygon(0 0, calc(100% - 20px) 0%, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
-}
-
-.button:first-child {
-    clip-path: polygon(0 0, calc(100% - 20px) 0%, 100% 50%, calc(100% - 20px) 100%, 0 100%);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-
-.button .label {
-    z-index: 1;
+    margin-left: -20px;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
+    transition: filter 0.2s ease-in-out;
 }
 
 .button:hover {
     filter: brightness(1.1);
-    transition: all 0.2s ease-in-out;
-}    
+}
+
+.label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.button:first-child {
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-left:0px;
+}
