@@ -15,7 +15,7 @@
                 { "title": "CS 61B",  "name": "Data Structures", "grade": "GRD" },
                 { "title": "CS 70", "name": "Discrete Mathematics and Probability Theory", "grade": "GRD" },
                 { "title": "EECS 16B", "name": "Introduction to Circuits and Devices", "grade": "GRD" },
-                { "title": "MATH 104", "name": "Introduction to Analysis", "grade": "A" }
+                { "title": "MATH 104", "name": "Introduction to Analysis", "grade": "GRD" }
             ]
         }
     ]
