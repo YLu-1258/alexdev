@@ -1,6 +1,6 @@
 {
-    "Technicals": ["Computer Architecture", "Computer Networking", "CyberSecurity", "Algorithms", "Data Structures", "Linear Algebra", "Machine Learning", "AGILE development"],
-    "Programming": ["Python", "JavaScript", "C++"],
-    "Frameworks": ["React", "Node.js", "Django"],
-    "Tools": ["Git", "Docker", "VSCode"]
+    "Technicals": ["Computer Architecture", "Computer Networking", "CyberSecurity", "Algorithms", "Data Structures", "Linear Algebra", "Machine Learning", "Artificial Intelligence", "AGILE development"],
+    "Programming": ["C++/C", "Java", "Python", "x86/ARM asm", "Swift", "C#", "Typescript", "Bash", "PowerShell", "SQL", "MATLAB"],
+    "Frameworks": ["Pytorch", "Tensorflow", "Deeplearning4J", "Python Flask", "Java Spring Boot", "React", "Next.js", "Node.js", "Django", "Sveltekit", "Bootstrap"],
+    "Tools": ["Git", "Docker", "VSCode", "Nginx", "Linux OS", "AWS EC2/RDS"]
 }
