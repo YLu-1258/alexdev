@@ -58,18 +58,73 @@
 
 
 .courses-container {
-    padding: 10px;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.semester-section {
-    margin-bottom: 20px;
+.courses-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color:#61dafb;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.semester-card {
+    background-color: #252526;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1rem;
+    text-align: center;
+}
+
+.semester-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.semester-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #61dafb;
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: 3fr;
+    gap: 1rem;
 }
 
 .course-item {
-    margin: 5px 0;
-    padding: 8px;
-    background: #21252b;
-    border: 1px solid #3e4451;
-    border-radius: 4px;
-    color: #e06c75;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    text-align: left;
 }
+
+.course {
+    margin: 0 1rem 0 0;
+}
+
+.course-title {
+    color: #0ec292;
+}
+
+.course-grade {
+    font-weight: bold;
+    color: #61dafb; /* Highlighted grade color */
+}
+
+
+

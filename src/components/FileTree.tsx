@@ -11,7 +11,7 @@ interface FileTreeProps {
     onFileSelect: (file: File) => void;
 }
 
-const FileTree: React.FC<FileTreeProps> = ({ onFileSelect }) => {
+const FileTree: React.FC<FileTreeProps> = ({  }) => {
     const files: File[] = [
         { id: '1', name: 'My Blog', content: "https://ylu-1258.github.io/YLU_blog/" },
     ];

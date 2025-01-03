@@ -5,7 +5,6 @@ import About from '../content/portfolio/about.tsx';
 import Awards from '../content/portfolio/awards.tsx';
 import Projects from '../content/portfolio/projects.tsx';
 import Skills from '../content/portfolio/skills.tsx';
-import Contact from '../content/portfolio/contact.tsx';
 import Experiences from '../content/portfolio/experiences.tsx';
 
 interface BottomBarProps {
@@ -17,13 +16,13 @@ const BottomBar: React.FC<BottomBarProps> = ({handleCreateTab}) => {
         { label: 'Awards', color: '#de9a4b', element: <Awards /> },
         { label: 'Experience', color: '#f0db54', element: <Experiences /> },
         { label: 'Projects', color: '#98c379', element: <Projects /> },
-        { label: 'skills', color: '#61afef', element: <Skills /> }
+        { label: 'Skills', color: '#61afef', element: <Skills /> }
     ];
 
     const createPage = (label: string) => {
         let page : Page = {
             title: label,
-            type: label.toLowerCase() as 'about' | 'awards' | 'projects' | 'skills' | 'contact',
+            type: label.toLowerCase() as 'blog' | 'about' | 'awards' | 'projects' | 'skills',
             content: pages.find(page => page.label === label)?.element
         }
         return page

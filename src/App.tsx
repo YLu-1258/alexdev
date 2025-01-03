@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from './components/Header';
 import FileTree from './components/FileTree';
 import MainDisplay from './components/MainDisplay';
@@ -12,11 +12,9 @@ const App: React.FC = () => {
     const [sidebarWidth, setSidebarWidth] = useState(100);
     const [tabs, setTabs] = useState<Tab[]>([]);
     const [activeTabId, setActiveTabId] = useState<string>("0");
-    const [activeTab, setActiveTab] = useState<Tab | null>();
     const appRef = useRef<HTMLDivElement>(null);
-    const mainDisplayRef = useRef<HTMLDivElement>(null);
 
-    const startResizing = React.useCallback((mouseDownEvent: React.MouseEvent<HTMLDivElement>) => {
+    const startResizing = React.useCallback(() => {
         setIsResizing(true);
       }, []);
     
@@ -46,7 +44,7 @@ const App: React.FC = () => {
       }, [resize, stopResizing]);
 
     const handleFileSelect = (file: { id: string; name: string; content: React.ReactNode }) => {
-        // Open a new tab with the selected file
+      return file;
     };
 
     const handleCreateTab = async (page: Page) => {
@@ -54,7 +52,6 @@ const App: React.FC = () => {
         let foundTab = tabs.find(tab => tab.title === page.title);
         if (foundTab) {
             setActiveTabId(foundTab.id);
-            setActiveTab(foundTab);
             return;
         }
         const newTab: Tab = {
@@ -65,7 +62,6 @@ const App: React.FC = () => {
         };
         setTabs(prevTabs => [...prevTabs, newTab]);
         setActiveTabId(newTab.id);
-        setActiveTab(newTab);
     };
 
     return (

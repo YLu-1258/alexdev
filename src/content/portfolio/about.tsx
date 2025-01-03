@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../css/About.css"; // Add styles for animations and layout
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import '../css/About.css';
 
 const About: React.FC = () => {
     const [aboutContent, setAboutContent] = useState<{

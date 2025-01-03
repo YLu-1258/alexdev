@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useRef } from 'react';
 import './css/MainDisplay.css';
 import TabBar from './TabBar';
 import { Tab } from './types';

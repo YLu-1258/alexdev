@@ -1,1 +1,0 @@
-import AnimatedBackground from './AnimatedBackground';

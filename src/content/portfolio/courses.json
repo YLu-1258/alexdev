@@ -2,7 +2,12 @@
     "courses" : [
         {
             "semester": "Fall 2024",
-            "courses": ["CS101: Intro to Computer Science", "MATH202: Linear Algebra"]
+            "courses": [
+                { "title": "CS 61A",  "name": "Structure and Interpretation of Computer Programs", "grade": "A" },
+                { "title": "EECS 16A", "name": "Designing Information Devices and Systems I", "grade": "A" },
+                { "title": "PHYSICS 7B", "name": "PHYSICS 7B: Heat, Electricity, and Magnetism", "grade": "A" },
+                { "title": "History 7A", "name": "Introduction to the History of the United States", "grade": "A" }
+            ]
         }
     ]
 }
