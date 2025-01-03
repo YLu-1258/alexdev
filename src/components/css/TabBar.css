@@ -1,0 +1,25 @@
+.tab-bar {
+    height: 30px;
+    background-color: #313131;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    position: fixed;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+
+.tab {
+    height: 20px;
+    padding: 8px 16px;
+    cursor: pointer; 
+}
+
+.tab.active {
+    border-bottom: #007acc 3px solid;
+}

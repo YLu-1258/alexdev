@@ -1,0 +1,6 @@
+{
+    "Technicals": ["Computer Architecture", "Computer Networking", "CyberSecurity", "Algorithms", "Data Structures", "Linear Algebra", "Machine Learning", "AGILE development"],
+    "Programming": ["Python", "JavaScript", "C++"],
+    "Frameworks": ["React", "Node.js", "Django"],
+    "Tools": ["Git", "Docker", "VSCode"]
+}

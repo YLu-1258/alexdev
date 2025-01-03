@@ -1,0 +1,48 @@
+{
+    "experiences" : [
+        {
+            "company":"ChannelSeal",
+            "position":"Backend Developer",
+            "description": [
+                "TBD",
+                "TBD",
+                "TBD"
+            ],
+            "years": "Jan 2025 - Present",
+            "picture": "/img/Skydeck.jpg"
+        },
+        {
+            "company":"SwiftScore LLC",
+            "position":"Fullstack Developer",
+            "description": [
+                "Develop full-stack LMS solutions for educators with React, Typescript, and Database Management Systems (Supabase).",
+                "Work closely with AI engineers to study how to implement and deploy LLM algorithms from scratch (Tensorflow).",
+                "Implemented RESTful APIs with prompt engineering techniques to utilize output from LLM models."
+            ],
+            "years": "Aug 2024 - Jan 2025",
+            "picture": "/img/swiftscore.png"
+        },
+        {
+            "company":"San Diego State University",
+            "position":"AI Researcher",
+            "description": [
+                "Optimized erythrocyte detection algorithm by 10% through layering the CLAHE model on the developmental UNet Model.",
+                "Developed computer vision model with the Pytorch and Keras framework to detect blood capillaries and cells.",
+                "Implemented Contrast Limited Adaptive Histogram Equalization with OpenCV to create binary image masks for training."
+            ],
+            "years": "May 2022 - Sept 2022",
+            "picture": "/img/sdsu_logo-1.png"
+        },
+        {
+            "company":"Franklin Research Internship Program",
+            "position":"Machine Learning Intern",
+            "description": [
+                "Mentored by Penn State Professor in regression, classification, and other unsupervised learning algorithms.",
+                "Implemented 10+ (KNN, SlopeOne, Logistic Regression, etc.) content recommendation algorithms with Sci-kit learn.",
+                "Compared accuracy (ranging from 70-90%) of ML systems by analyzing RMSE metrics. Documented findings within paper."
+            ],
+            "years": "May 2021 - July 2021",
+            "picture": "/img/ai.webp"
+        }
+    ]
+}

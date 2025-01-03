@@ -1,0 +1,13 @@
+.main-display {
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Prevents content overflow from resizing the container */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.content{
+    top: 30px;
+    overflow-x: hidden;
+}

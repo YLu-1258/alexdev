@@ -1,0 +1,19 @@
+{
+    "projects" : [
+        {
+            "name":"Helios Discord Bot",
+            "description":"An all-in-one music, moderation, and utility bot for Discord.",
+            "language": "/img/python.png"
+        },
+        {
+            "name":"Algorithms Visualizer",
+            "description":"A web application that visualizes various sorting and graph algorithms.",
+            "language": "/img/java.png"
+        },
+        {
+            "name":"ACLED Conflict Prediction",
+            "description":"LSTM neural-network to predict world-wide conflict events using ACLED data.",
+            "language": "/img/python.png"
+        }
+    ]
+}

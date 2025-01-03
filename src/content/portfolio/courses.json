@@ -1,0 +1,8 @@
+{
+    "courses" : [
+        {
+            "semester": "Fall 2024",
+            "courses": ["CS101: Intro to Computer Science", "MATH202: Linear Algebra"]
+        }
+    ]
+}

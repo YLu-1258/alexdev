@@ -1,0 +1,28 @@
+{
+    "awards" : [
+        {
+            "title":"CyberPatriot XVI Open Division National Finals",
+            "award":"3rd Place Nationally",
+            "years": "2024",
+            "picture": "/img/CP16Logo.png"
+        },
+        {
+            "title":"CyberPatriot CISCO Networking Challenge",
+            "award":"2nd Place Nationally",
+            "years": "2024",
+            "picture": "/img/CP16Logo.png"
+        },
+        {
+            "title":"CyberPatriot Platinum Tier Semifinals",
+            "award":"8th, 5th, 7th, 6th place (~ top 2%)",
+            "years": "2020-2024",
+            "picture": "/img/CP16Logo.png"
+        },
+        {
+            "title":"San Diego City Council",
+            "award":"Certificate of Recognition",
+            "years": "2023",
+            "picture": "/img/Seal_of_San_Diego,_California.png"
+        }
+    ]
+}

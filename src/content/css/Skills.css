@@ -1,0 +1,75 @@
+.container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    padding: 20px;
+    font-family: 'Fira Code', monospace;
+    color: #dcdcdc;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: auto;
+}
+
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills-title {
+    font-size: 2rem;
+    color: #61dafb;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.skills-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.skills-category {
+    margin-bottom: 15px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    padding: 5px 10px;
+    background: #282c34;
+    color: #abb2bf;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.skill-tag:hover {
+    background: #61afef;
+    color: #282c34;
+}
+
+
+.courses-container {
+    padding: 10px;
+}
+
+.semester-section {
+    margin-bottom: 20px;
+}
+
+.course-item {
+    margin: 5px 0;
+    padding: 8px;
+    background: #21252b;
+    border: 1px solid #3e4451;
+    border-radius: 4px;
+    color: #e06c75;
+}
