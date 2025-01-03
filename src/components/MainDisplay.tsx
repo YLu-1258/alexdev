@@ -37,7 +37,7 @@ const MainDisplay: React.FC<MainDisplayProps> = ({ tabs, setTabs, activeTabId, s
             <div className="content">
                 {tabs.find(tab => tab.id === activeTabId)?.content || (
                     <div className="placeholder">
-                        Select a file or tab to view its content. Blog is a work in Progress!
+                        Select a tab from below to view its contents.
                     </div>
                 )}
             </div>
