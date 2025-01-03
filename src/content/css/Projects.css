@@ -2,7 +2,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    padding: 20px;
+    padding: 1rem;
     font-family: 'Fira Code', monospace;
     color: #dcdcdc;
     background-color: #1e1e1e;
@@ -26,17 +26,19 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adapts to available space */
+    align-items: start;
 }
 
 .project-card {
     display: flex;
+    flex-direction: row;
     align-items: center;
     background: #252526;
     border-radius: 10px;
-    padding: 5px;
-    height: 15vh;
+    padding: 1rem;
+    height: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -58,7 +60,7 @@
     max-width: 85px;
     height: auto;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .card-right {
@@ -96,5 +98,28 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single-column layout */
+    }
+
+    .project-card {
+        flex-direction: column; /* Stack content for smaller screens */
+        align-items: center;
+    }
+
+    .card-left {
+        margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+        text-align: center;
+    }
+
+    .project-details {
+        text-align: center;
     }
 }

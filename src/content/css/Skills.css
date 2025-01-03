@@ -73,10 +73,17 @@
 
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two columns by default */
     gap: 1rem;
     width: 100%;
     max-width: 800px;
+}
+
+/* Single-column layout for smaller screens */
+@media (max-width: 600px) {
+    .courses-grid {
+        grid-template-columns: 1fr; /* Force single column */
+    }
 }
 
 .semester-card {
@@ -86,6 +93,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
     padding: 1rem;
     text-align: center;
+    height: auto; /* Ensures dynamic height adjustment */
 }
 
 .semester-card:hover {
@@ -101,30 +109,30 @@
 }
 
 .course-list {
-    display: grid;
-    grid-template-columns: 3fr;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column; /* Stack courses vertically */
+    gap: 0.5rem;
+    text-align: left; /* Align text to the left */
 }
 
 .course-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.5rem;
-    text-align: left;
 }
 
 .course {
-    margin: 0 1rem 0 0;
+    margin: 0;
 }
 
 .course-title {
     color: #0ec292;
+    font-weight: bold;
 }
 
 .course-grade {
     font-weight: bold;
     color: #61dafb; /* Highlighted grade color */
 }
-
-
 

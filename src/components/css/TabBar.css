@@ -8,11 +8,18 @@
     padding: 0;
     display: flex;
     align-items: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+
     z-index: 1000;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    white-space: nowrap; /* Prevent tabs from wrapping to a new line */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
 
-
+.tab-bar::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
 
 .tab {
     height: 20px;
@@ -21,5 +28,9 @@
 }
 
 .tab.active {
-    border-bottom: #007acc 3px solid;
+    background-color: #007acc;
+}
+
+.close-btn:hover {
+    color: red;
 }

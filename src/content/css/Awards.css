@@ -26,17 +26,17 @@
 
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive layout */
+    align-items: start; /* Ensures alignment starts at the top */
 }
 
 .award-card {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     background: #252526;
     border-radius: 10px;
-    padding: 5px;
-    height: 30vh;
+    padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -47,53 +47,55 @@
 }
 
 .card-left {
-    flex: 0 0 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-shrink: 0;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .award-image {
-    width: 100%;
-    max-width: 100px;
-    height: auto;
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
     border-radius: 8px;
-    object-fit: cover;
 }
 
 .card-right {
-    flex: 1;
-    padding-left: 15px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .award-title {
-    font-size: 1.0rem;
+    font-size: 1.25rem;
     color: #4fc3f7;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
 .award-details {
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #b0b0b0;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .award-years {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: #888888;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* Single-column layout for smaller screens */
+@media (max-width: 600px) {
+    .awards-grid {
+        grid-template-columns: 1fr; /* Forces single-column layout */
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .award-card {
+        align-items: center;
+        text-align: center; /* Center content for readability */
+    }
+
+    .card-right {
+        margin-top: 15px;
     }
 }
