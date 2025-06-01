@@ -58,6 +58,12 @@
 	color: white;
 }
 
+.file a {
+  text-decoration: none;    /* no underline */
+  color: inherit;           /* use the same color as .file */
+  display: block;           /* so it fills the same space as a <div> */
+}
+
 .file:hover {
     background-color: #333;
 }

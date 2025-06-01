@@ -8,28 +8,37 @@ interface File {
 }
 
 interface FileTreeProps {
-    onFileSelect: (file: File) => void;
+    onFileSelect?: (file: File) => void; // we’re not using this prop right now
 }
 
-const FileTree: React.FC<FileTreeProps> = ({  }) => {
+const FileTree: React.FC<FileTreeProps> = ({ }) => {
     const files: File[] = [
         { id: '1', name: 'My Blog', content: "https://ylu-1258.github.io/YLU_blog/" },
+        { id: '2', name: 'Resume', content: "/downloads/AlexanderLu.pdf" }
     ];
-
-    const handleFileClick = (content: string) => {
-        window.open(content, '_blank'); // Redirects to the URL
-    };
 
     return (
         <div className="filetree">
             {files.map(file => (
-                <div
-                    key={file.id}
-                    className="file"
-                    onClick={() => handleFileClick(file.content)}
-                >
-                    {file.name}
-                </div>
+                file.name === 'Resume'
+                    ? (
+                        <div
+                            key={file.id}
+                            className="file"
+                            
+                        >
+                            <a href={file.content} download> {file.name} </a>
+                        </div>
+                    )
+                    : (
+                        <div
+                            key={file.id}
+                            className="file"
+                            onClick={() => window.open(file.content, '_blank')}
+                        >
+                            {file.name}
+                        </div>
+                    )
             ))}
         </div>
     );
