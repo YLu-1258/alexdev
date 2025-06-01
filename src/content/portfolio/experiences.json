@@ -1,15 +1,26 @@
 {
     "experiences" : [
         {
-            "company":"ChannelSeal",
-            "position":"Backend Developer",
+            "company":"BAIR - Berkeley Speech Group",
+            "position":"LLM Interpretability Researcher",
             "description": [
-                "TBD",
-                "TBD",
-                "TBD"
+                "Researching interpretability and faithfulness of frontier reasoning models.",
+                "Employing \"logitlens\" view of transformers to analyze internal reasoning and decision making of LLM models",
+                "Engineering with openAI APIs to finetune, prompt, and collect sample data from Llama, Deepseek, Qwen, and OpenAI models."
+            ],
+            "years": "May 2025 - Present",
+            "picture": "/img/BAIR_Logo.svg"
+        },
+        {
+            "company":"UCSF Weill Institute for Neurosciences",
+            "position":"Machine Learning Researcher",
+            "description": [
+                "Developed EEG signal processing pipeline to accurately detect seizure patterns in epileptic mice",
+                "Created and Fine-tuned SVM model to accurately classify mice seizures with 96% accuracy",
+                "Integrating state-of-the-art video analysis tools (DeepLabCut and Keypoint Moseq) to track and quantify behavioral patterns."
             ],
             "years": "Jan 2025 - Present",
-            "picture": "/img/Skydeck.jpg"
+            "picture": "/img/UCSF_logo.png"
         },
         {
             "company":"SwiftScore LLC",
