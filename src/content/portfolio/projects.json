@@ -7,10 +7,10 @@
             "url": "https://github.com/YLu-1258/CoT-Cue-Articuation"
         },
         {
-            "name":"ACLED Conflict Prediction",
-            "description":"LSTM neural-network to predict world-wide conflict events using ACLED data.",
+            "name":"Rodent-EEG Seizure Detection",
+            "description":"Python pipeline to preprocess, analyze, and extract EEG features to fit a SVM model for seizure identification.",
             "language": "/img/python.png",
-            "url": ""
+            "url": "https://github.com/YLu-1258/seizure_analysis"
         },
         {
             "name":"MacOSClipboard",
