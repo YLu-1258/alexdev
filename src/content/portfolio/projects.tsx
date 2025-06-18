@@ -5,6 +5,7 @@ interface Project {
     name: string;
     description: string;
     language: string;
+    url: string;
 }
 
 interface Projects {
@@ -32,7 +33,8 @@ const Projects: React.FC = () => {
             <h1 className="page-title">Projects</h1>
             <div className="projects-grid">
                 {projects.projects.map((project, index) => (
-                    <div key={index} className="project-card">
+                    // Make this div redict to project.url when clicked
+                    <div key={index} className="project-card" onClick={() => window.location.href = project.url || '#'}>
                         <div className="card-left">
                             <img src={project.language || '/placeholder-image.png'} className="project-image" />
                         </div>
