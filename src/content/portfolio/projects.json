@@ -1,14 +1,20 @@
 {
     "projects" : [
         {
+            "name":"Tapestry",
+            "description":"Token-based semantic Obsidian graph visualization tool.",
+            "language": "/img/python.png",
+            "url": "https://github.com/YLu-1258/tapestry"
+        },
+        {
             "name":"CoT Cue Articulation",
-            "description":"Python pipeline to analyze CoT transparency and faithfulness of frontier reasoning models on biased prompts.",
+            "description":"Research and fine-tuning CoT faithfulness of frontier reasoning models.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/CoT-Cue-Articuation"
         },
         {
             "name":"Rodent-EEG Seizure Detection",
-            "description":"Python pipeline to preprocess, analyze, and extract EEG features to fit a SVM model for seizure identification.",
+            "description":"Python pipeline to analyze and extract EEG features to detect seizures through a SVM.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/seizure_analysis"
         },
