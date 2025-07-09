@@ -13,7 +13,7 @@ interface FileTreeProps {
 
 const FileTree: React.FC<FileTreeProps> = ({ }) => {
     const files: File[] = [
-        { id: '1', name: 'My Blog', content: "https://ylu-1258.github.io/YLU_blog/" },
+        { id: '1', name: 'My Blog', content: "https://blog.alexlu.us" },
         { id: '2', name: 'Resume', content: "/downloads/AlexanderLu.pdf" }
     ];
 
