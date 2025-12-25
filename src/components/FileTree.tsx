@@ -1,47 +1,90 @@
-import React from 'react';
-import './css/FileTree.css';
+import React, { useState } from "react";
+import { FiFolder, FiFolderMinus, FiFolderPlus, FiFileText, FiExternalLink } from "react-icons/fi";
+import "./css/FileTree.css";
 
-interface File {
-    id: string;
-    name: string;
-    content: string;
-}
+type TreeNode =
+  | {
+      type: "folder";
+      name: string;
+      children: TreeNode[];
+    }
+  | {
+      type: "file";
+      name: string;
+      href: string;
+      download?: boolean;
+    };
 
-interface FileTreeProps {
-    onFileSelect?: (file: File) => void; // we’re not using this prop right now
-}
+const tree: TreeNode[] = [
+  {
+    type: "folder",
+    name: "Links",
+    children: [
+      {
+        type: "file",
+        name: "My Blog",
+        href: "https://blog.alexlu.us",
+      },
+      {
+        type: "file",
+        name: "Resume.pdf",
+        href: "/downloads/AlexanderLu.pdf",
+        download: true,
+      },
+    ],
+  },
+];
 
-const FileTree: React.FC<FileTreeProps> = ({ }) => {
-    const files: File[] = [
-        { id: '1', name: 'My Blog', content: "https://blog.alexlu.us" },
-        { id: '2', name: 'Resume', content: "/downloads/AlexanderLu.pdf" }
-    ];
+const Folder: React.FC<{ node: Extract<TreeNode, { type: "folder" }> }> = ({ node }) => {
+  const [open, setOpen] = useState(true);
 
-    return (
-        <div className="filetree">
-            {files.map(file => (
-                file.name === 'Resume'
-                    ? (
-                        <div
-                            key={file.id}
-                            className="file"
-                            
-                        >
-                            <a href={file.content} download> {file.name} </a>
-                        </div>
-                    )
-                    : (
-                        <div
-                            key={file.id}
-                            className="file"
-                            onClick={() => window.open(file.content, '_blank')}
-                        >
-                            {file.name}
-                        </div>
-                    )
-            ))}
+  return (
+    <div className="tree-node">
+      <div className="tree-item folder" onClick={() => setOpen(!open)}>
+        {open ? <FiFolderMinus /> : <FiFolderPlus />}
+        <span>{node.name}</span>
+      </div>
+
+      {open && (
+        <div className="tree-children">
+          {node.children.map((child, i) =>
+            child.type === "folder" ? (
+              <Folder key={i} node={child} />
+            ) : (
+              <File key={i} node={child} />
+            )
+          )}
         </div>
-    );
+      )}
+    </div>
+  );
+};
+
+const File: React.FC<{ node: Extract<TreeNode, { type: "file" }> }> = ({ node }) => {
+  return (
+    <div className="tree-item file">
+      <FiFileText />
+      <a
+        href={node.href}
+        target={node.download ? "_self" : "_blank"}
+        rel="noreferrer"
+        download={node.download}
+      >
+        {node.name}
+      </a>
+      {!node.download && <FiExternalLink className="external" />}
+    </div>
+  );
+};
+
+const FileTree: React.FC = () => {
+  return (
+    <div className="file-tree">
+      {tree.map((node, i) =>
+        node.type === "folder" ? <Folder key={i} node={node} /> : null
+      )}
+    </div>
+  );
 };
 
 export default FileTree;

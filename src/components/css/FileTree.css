@@ -1,4 +1,93 @@
 .file-tree {
-    width: 100%;
-    background-color: #252526;
+  font-family: "Inter", monospace;
+  font-size: 13px;
+  background: #252526;
+  color: #cccccc;
+  padding: 8px;
+}
+
+.tree-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.tree-item:hover {
+  background: #2a2d2e;
+}
+
+.folder {
+  font-weight: 500;
+}
+
+.file a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.file a:hover {
+  color: #ffffff;
+}
+
+.tree-children {
+  margin-left: 14px;
+}
+
+.external {
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+.tree-node {
+  position: relative;
+}
+
+.tree-children {
+  margin-left: 14px;
+  padding-left: 10px;
+  position: relative;
+}
+
+/* draw the vertical guide */
+.tree-children::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* erase ONLY the part of the vertical line below the last child's center */
+.tree-children > .tree-item:last-child::after,
+.tree-children > .tree-node:last-child > .tree-item::after {
+  content: "";
+  position: absolute;
+  left: -10px;          /* same x as your connector line */
+  top: 50%;             /* start erasing at midline */
+  bottom: -6px;         /* extend a bit past for padding */
+  width: 1px;
+  background: #252526;  /* MUST match your explorer bg */
+}
+
+
+.tree-item {
+  position: relative;
+}
+
+.tree-item::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* horizontal connector */
+}
+
+.file-tree > .tree-node > .tree-item::before {
+  display: none;
 }
