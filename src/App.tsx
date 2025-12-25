@@ -78,7 +78,7 @@ const App: React.FC = () => {
                     onMouseDown={(e) => e.preventDefault()}
                   >
                     <div className="app-sidebar-content">
-                      <FileTree onFileSelect={handleFileSelect} />
+                      <FileTree/>
                     </div>
                     <div className="app-sidebar-resizer" onMouseDown={startResizing} />
                   </div>
