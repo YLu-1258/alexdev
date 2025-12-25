@@ -44,10 +44,6 @@ const App: React.FC = () => {
         };
     }, [resize, stopResizing]);
 
-    const handleFileSelect = (file: { id: string; name: string; content: React.ReactNode }) => {
-        return file;
-    };
-
     const handleCreateTab = async (page: Page) => {
         // Check if the tab is already open
         let foundTab = tabs.find(tab => tab.title === page.title);

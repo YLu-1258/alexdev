@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FiFolder, FiFolderMinus, FiFolderPlus, FiFileText, FiExternalLink } from "react-icons/fi";
+import { FiFolderMinus, FiFolderPlus, FiFileText, FiExternalLink } from "react-icons/fi";
 import "./css/FileTree.css";
 
 type TreeNode =
