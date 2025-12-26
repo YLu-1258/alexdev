@@ -23,7 +23,7 @@
             "courses": [
                 { "title": "CS 61C",  "name": "Great Ideas in Computer Architecture (Machine Structures)", "grade": "A+" },
                 { "title": "CS 170", "name": "Efficient Algorithms and Intractable Problems", "grade": "GRD" },
-                { "title": "EECS 126", "name": "Probability and Random Processes", "grade": "GRD" },
+                { "title": "EECS 126", "name": "Probability and Random Processes", "grade": "A+" },
                 { "title": "MATH 110", "name": "Introduction to Abstract Algebra", "grade": "A+" }
             ]
         }

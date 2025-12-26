@@ -12,3 +12,32 @@
   overflow: auto;
   background: #1e1e1e;     /* set the panel background explicitly */
 }
+
+.mobile-files-bottom-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .main-display {
+    position: relative;
+  }
+
+  .mobile-files-bottom-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: sticky;
+    bottom: 12px;
+    margin: 0 auto 12px;
+
+    padding: 10px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(30,30,30,0.95);
+    color: #ddd;
+
+    font-weight: 500;
+    z-index: 10;
+  }
+}
