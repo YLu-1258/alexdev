@@ -1,13 +1,14 @@
 .main-display {
-    width: 100%;
-    height: 100%;
-    overflow: auto; /* Prevents content overflow from resizing the container */
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* important: prevent scrollbars on the outer container */
 }
 
-.content{
-    top: 30px;
-    overflow-x: hidden;
+.content {
+  flex: 1;                 /* fill the remaining space under the TabBar */
+  min-height: 0;           /* important for nested scrolling in flex */
+  overflow: auto;
+  background: #1e1e1e;     /* set the panel background explicitly */
 }

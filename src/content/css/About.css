@@ -16,11 +16,38 @@
     opacity: 1;
     transform: translateY(0);
 }
+.about-header {
+  display: flex;
+  align-items: center;        /* keep */
+  gap: 80px;
+}
+
+/* 🔑 Fix the title’s line box */
+.about-title {
+  margin: 0;
+  line-height: 1;             /* removes extra vertical padding */
+  display: flex;
+  align-items: center;        /* centers text within its own box */
+}
+
+/* Headshot stays centered */
+.about-headshot {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #61dafb;
+  box-shadow: 0 0 0 3px rgba(63, 169, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.about-headshot:hover {
+  box-shadow: 0 0 12px rgba(63,169,255,0.8);
+}
 
 .about-title {
     font-size: 2rem;
     color: #61dafb;
-    margin-bottom: 1rem;
 }
 
 .about-description {

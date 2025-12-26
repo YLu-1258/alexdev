@@ -15,7 +15,7 @@ const App: React.FC = () => {
     const sidebarRef = useRef<HTMLDivElement>(null);
     const [isResizing, setIsResizing] = useState(false);
     const [sidebarWidth, setSidebarWidth] = useState(100);
-    const [tabs, setTabs] = useState<Tab[]>([{"id": "0", "title": 'ℹ️About', "type": 'about', "content": <About />}]);
+    const [tabs, setTabs] = useState<Tab[]>([{"id": "0", "title": 'About', "type": 'about', "content": <About />}]);
     const [activeTabId, setActiveTabId] = useState<string>("0");
     const appRef = useRef<HTMLDivElement>(null);
 

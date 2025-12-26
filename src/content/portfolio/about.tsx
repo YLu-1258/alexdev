@@ -24,7 +24,15 @@ const About: React.FC = () => {
 
     return (
         <div className={`about-container ${isVisible ? "visible" : ""}`}>
-            <h1 className="about-title">{aboutContent.title}</h1>
+            <div className="about-header">
+                <h1 className="about-title">{aboutContent.title}</h1>
+                <img
+                    src={aboutContent.picture}
+                    alt="Headshot"
+                    className="about-headshot"
+                />
+                
+            </div>
             <p className="about-description">{aboutContent.description}</p>
             <p className="about-extras">{aboutContent.extras}</p>
             <div className="contact-icons">

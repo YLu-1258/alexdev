@@ -8,11 +8,19 @@
 
 .tree-item {
   display: flex;
-  align-items: center;
   gap: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
   padding: 4px 6px;
   cursor: pointer;
   border-radius: 4px;
+}
+
+.tree-item svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
 }
 
 .tree-item:hover {

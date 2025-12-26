@@ -34,6 +34,13 @@
     margin-left: -20px;
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
     transition: filter 0.2s ease-in-out;
+    gap: 8px;
+}
+
+.bottom-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
 }
 
 .button:hover {
@@ -52,4 +59,9 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     margin-left:0px;
+}
+
+.bottom-icon {
+  width: 18px;
+  height: 18px;
 }
