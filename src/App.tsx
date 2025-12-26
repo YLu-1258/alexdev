@@ -7,6 +7,10 @@ import './App.css';
 import { Tab, Page } from './components/types';
 import About from './content/portfolio/about';
 
+import BlogIndex from "./blog/render/BlogIndex";
+import BlogPostView from "./blog/render/BlogPostView";
+import { getPost } from "./blog/render/loadPosts";
+
 const App: React.FC = () => {
     const sidebarRef = useRef<HTMLDivElement>(null);
     const [isResizing, setIsResizing] = useState(false);
@@ -61,6 +65,28 @@ const App: React.FC = () => {
         setActiveTabId(newTab.id);
     };
 
+    const handleCreateBlog = (slug: string) => {
+      const post = getPost(slug);
+      console.log("Opening blog post:", slug, post);
+      if (!post) {
+        const missing: Page = {
+          title: `Missing post: ${slug}`,
+          type: "blog",
+          content: <div style={{ padding: 18 }}>Couldn’t find blog post: {slug}</div>,
+        };
+        handleCreateTab(missing);
+        return;
+      }
+
+      const page: Page = {
+        title: post.title,     // tab title
+        type: "blog",
+        content: <BlogPostView post={post} onOpenBlog={handleCreateBlog}/>,
+      };
+
+      handleCreateTab(page);
+    };
+
     return (
         <div className="app" ref={appRef}>
             <Header />
@@ -74,7 +100,7 @@ const App: React.FC = () => {
                     onMouseDown={(e) => e.preventDefault()}
                   >
                     <div className="app-sidebar-content">
-                      <FileTree/>
+                      <FileTree handleCreateBlog={handleCreateBlog} />
                     </div>
                     <div className="app-sidebar-resizer" onMouseDown={startResizing} />
                   </div>
