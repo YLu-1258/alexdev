@@ -7,7 +7,6 @@ import './App.css';
 import { Tab, Page } from './components/types';
 import About from './content/portfolio/about';
 
-import BlogIndex from "./blog/render/BlogIndex";
 import BlogPostView from "./blog/render/BlogPostView";
 import { getPost } from "./blog/render/loadPosts";
 

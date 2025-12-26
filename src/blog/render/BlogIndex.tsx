@@ -1,4 +1,3 @@
-import React from "react";
 import { allPosts } from "./loadPosts";
 
 export default function BlogIndex({ onOpen }: { onOpen: (slug: string) => void }) {
