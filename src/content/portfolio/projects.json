@@ -1,20 +1,26 @@
 {
     "projects" : [
         {
+            "name":"EigenAgent",
+            "description":"Fully local, offline AI agent with on-device model control.",
+            "language": "/img/RustLogo.webp",
+            "url": "https://github.com/YLu-1258/eigenAgent"
+        },
+        {
             "name":"Tapestry",
-            "description":"Token-based semantic Obsidian graph visualization tool.",
+            "description":"Embedding-based semantic Obsidian graph visualization tool.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/tapestry"
         },
         {
             "name":"CoT Cue Articulation",
-            "description":"Research and fine-tuning CoT faithfulness of frontier reasoning models.",
+            "description":"Fine-tuning CoT faithfulness of frontier reasoning models.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/CoT-Cue-Articuation"
         },
         {
-            "name":"Rodent-EEG Seizure Detection",
-            "description":"Python pipeline to analyze and extract EEG features to detect seizures through a SVM.",
+            "name":"Rodent Seizure Detection",
+            "description":"Analyze EEG features to detect seizures through a SVM.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/seizure_analysis"
         },
@@ -26,7 +32,7 @@
         },
         {
             "name":"Helios Discord Bot",
-            "description":"An all-in-one music, moderation, and utility bot for Discord.",
+            "description":"An all-in-one music, moderation, and utility bot.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/Helios"
         }
