@@ -1,6 +1,18 @@
 {
     "experiences" : [
         {
+            "company":"Amazon",
+            "position":"Software Development Engineer Intern",
+            "description": [
+                "Building automated change management systems for large-scale network traffic engineering.",
+                "Developing serverless orchestration pipelines using AWS Step Functions and Lambda for validation, execution, and rollback automation.",
+                "Implementing real-time observability pipelines with CloudWatch for metric monitoring and safe progressive deployments.",
+                "Automating traffic shifting and deployment verification across distributed infrastructure to improve reliability and operational velocity."
+            ],
+            "years": "January 2026 - Present",
+            "picture": "/img/amazon.jpg"
+        },
+        {
             "company":"BAIR - Berkeley Speech Group",
             "position":"LLM Interpretability Researcher",
             "description": [
@@ -9,7 +21,7 @@
                 "Engineering with openAI APIs to finetune, prompt, and collect sample data from Llama, Deepseek, Qwen, and OpenAI models."
             ],
             "years": "May 2025 - Present",
-            "picture": "/img/BAIR_Logo.svg"
+            "picture": "/img/BAIR.png"
         },
         {
             "company":"UCSF Weill Institute for Neurosciences",
