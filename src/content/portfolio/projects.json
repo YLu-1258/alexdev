@@ -2,39 +2,45 @@
     "projects" : [
         {
             "name": "EigenAgent",
-            "description": "Fully local LLM desktop assistant built with Rust, Tauri, and React. Runs GGUF-quantized models offline via llama.cpp with token-level streaming and MCP-based tool invocation.",
+            "description": "Offline LLM desktop assistant in Rust + Tauri with MCP tool use and token streaming.",
             "language": "/img/RustLogo.webp",
-            "url": "https://github.com/YLu-1258/eigenAgent"
+            "url": "https://github.com/YLu-1258/eigenAgent",
+            "skills": ["Rust", "LLM Fine-Tuning", "TypeScript/HTML/CSS"]
         },
         {
-            "name": "Mechanistic Interpretability Toolkit",
-            "description": "Interpretability toolkit for GPT-2 and Qwen3 supporting token attribution, attention head analysis, and activation patching via TransformerLens, FastAPI, and React. Streams logit-lens predictions over WebSocket.",
+            "name": "MechInterp",
+            "description": "Token attribution, activation patching, and logit-lens analysis for small models.",
             "language": "/img/python.png",
-            "url": "https://github.com/YLu-1258/MechInterp"
+            "url": "https://github.com/YLu-1258/MechInterp",
+            "skills": ["Python", "Mechanistic Interpretability", "Machine Learning"]
         },
         {
-            "name": "Semantic Backlinks Generator",
-            "description": "Python tool for Obsidian-style blogs using sentence transformers and FAISS for efficient semantic similarity search. Includes a graph visualization pipeline for tuning density and confidence.",
+            "name": "Tapestry",
+            "description": "Embedding-based semantic backlink generator for Obsidian blogs.",
             "language": "/img/python.png",
-            "url": "https://github.com/YLu-1258/tapestry"
+            "url": "https://github.com/YLu-1258/tapestry",
+            "skills": ["Python", "NLP", "Algorithms & Data Structures"]
         },
         {
             "name": "CoT Cue Articulation",
             "description": "Fine-tuning pipeline studying chain-of-thought faithfulness in frontier reasoning models.",
             "language": "/img/python.png",
-            "url": "https://github.com/YLu-1258/CoT-Cue-Articuation"
+            "url": "https://github.com/YLu-1258/CoT-Cue-Articuation",
+            "skills": ["Python", "LLM Fine-Tuning", "Machine Learning"]
         },
         {
             "name": "Rodent Seizure Detection",
             "description": "EEG feature extraction and SVM-based seizure detection pipeline for epileptic mice.",
             "language": "/img/python.png",
-            "url": "https://github.com/YLu-1258/seizure_analysis"
+            "url": "https://github.com/YLu-1258/spark",
+            "skills": ["Python", "Signal Processing", "SciPy", "Machine Learning", "Pandas", "NumPy"]
         },
         {
             "name": "MacOSClipboard",
             "description": "A copy-paste clipboard manager built for macOS in Swift.",
             "language": "/img/swift.png",
-            "url": "https://github.com/YLu-1258/MacOSClipboard"
+            "url": "https://github.com/YLu-1258/MacOSClipboard",
+            "skills": ["Swift", "macOS Development"]
         }
     ]
 }

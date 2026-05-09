@@ -30,6 +30,7 @@ const Awards: React.FC = () => {
     return (
         <div className={`awards-container ${isVisible ? "visible" : ""}`}>
             <h1 className="page-title">Awards</h1>
+            <p className="page-blurb">Nice reminders that effort occasionally leaves a paper trail.</p>
             <div className="awards-grid">
                 {awards.awards.map((award, index) => (
                     <div key={index} className="award-card">

@@ -9,6 +9,7 @@ import About from './content/portfolio/about';
 import Awards from './content/portfolio/awards';
 import Projects from './content/portfolio/projects';
 import Skills from './content/portfolio/skills';
+import Courses from './content/portfolio/courses';
 import Experiences from './content/portfolio/experiences';
 
 import Research from './content/portfolio/research';
@@ -30,7 +31,8 @@ const App: React.FC = () => {
     { id: "2", title: 'Research', type: 'research', content: <Research /> },
     { id: "3", title: 'Projects', type: 'projects', content: <Projects /> },
     { id: "4", title: 'Skills', type: 'skills', content: <Skills /> },
-    { id: "5", title: 'Awards', type: 'awards', content: <Awards /> },
+    { id: "5", title: 'Courses', type: 'courses', content: <Courses /> },
+    { id: "6", title: 'Awards', type: 'awards', content: <Awards /> },
   ]);
   const [activeTabId, setActiveTabId] = useState<string>("0");
 
@@ -38,9 +40,6 @@ const App: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(() =>
     typeof window !== "undefined" ? window.innerWidth <= MOBILE_BP : false
   );
-
-  // ✅ drawer state
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   React.useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= MOBILE_BP);
@@ -74,11 +73,7 @@ const App: React.FC = () => {
 
   // Close drawer on Escape
   React.useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsDrawerOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return undefined;
   }, []);
 
   const handleCreateTab = async (page: Page) => {
@@ -95,8 +90,6 @@ const App: React.FC = () => {
     };
     setTabs(prev => [...prev, newTab]);
     setActiveTabId(newTab.id);
-    // ✅ if user opened something from the tree on mobile, close drawer
-    setIsDrawerOpen(false);
   };
 
   const handleCreateBlog = (slug: string) => {
@@ -118,7 +111,6 @@ const App: React.FC = () => {
     };
 
     handleCreateTab(page);
-    setIsDrawerOpen(false);
   };
 
   return (
@@ -147,7 +139,7 @@ const App: React.FC = () => {
           setTabs={setTabs}
           activeTabId={activeTabId}
           setActiveTabId={setActiveTabId}
-          onOpenFiles={isMobile ? () => setIsDrawerOpen(true) : undefined}
+          onOpenFiles={undefined}
         />
 
       </div>
@@ -155,7 +147,7 @@ const App: React.FC = () => {
       <BottomBar handleCreateTab={handleCreateTab} />
 
       {/* ✅ Mobile Drawer */}
-      {isMobile && (
+      {/* {isMobile && (
         <div className={`filetree-drawer ${isDrawerOpen ? "open" : ""}`}>
           <div className="filetree-drawer-backdrop" onClick={() => setIsDrawerOpen(false)} />
           <aside className="filetree-drawer-panel" role="dialog" aria-modal="true">
@@ -170,7 +162,7 @@ const App: React.FC = () => {
             </div>
           </aside>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

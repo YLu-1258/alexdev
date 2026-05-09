@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Tab } from "./types";
-import { FiFileText, FiInfo, FiAward, FiLayers, FiBriefcase, FiTool, FiX, FiBook } from "react-icons/fi";
+import { FiFileText, FiInfo, FiAward, FiLayers, FiBriefcase, FiTool, FiX, FiBook, FiCheckSquare } from "react-icons/fi";
 import "./css/TabBar.css";
 
 interface TabBarProps {
@@ -26,6 +26,8 @@ const iconFor = (type: Tab["type"]) => {
       return <FiTool className="tab-icon" />;
     case "research":
       return <FiBook className="tab-icon" />;
+    case "courses":
+      return <FiCheckSquare className="tab-icon" />;
     default:
       return null;
   }

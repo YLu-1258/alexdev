@@ -33,6 +33,7 @@ const Research: React.FC = () => {
     return (
         <div className={`research-container ${isVisible ? 'visible' : ''}`}>
             <h1 className="page-title">Research</h1>
+            <p className="page-blurb">Asking tiny questions until they become large experiments.</p>
             <div className="research-grid">
                 {data.publications.map((pub, index) => (
                     <div key={index} className="pub-card">

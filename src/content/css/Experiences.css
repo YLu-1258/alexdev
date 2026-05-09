@@ -7,7 +7,6 @@
     color: #dcdcdc;
     background-color: #1e1e1ea9;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 800px;
     margin: auto;
 }
@@ -21,22 +20,76 @@
     text-align: center;
     font-size: 2rem;
     color: #61dafb;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
+.page-blurb {
+    text-align: center;
+    margin: -0.8rem 0 1.2rem;
+    color: #9aa0a6;
+    font-size: 0.9rem;
+}
+
+/* Timeline container */
 .experiences-grid {
+    --timeline-x: 12px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
+    padding-left: 0;
 }
 
+.experiences-grid::before {
+    content: '';
+    position: absolute;
+    left: var(--timeline-x);
+    top: 18px;
+    bottom: 18px;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        #4fc3f7 0%,
+        rgba(79, 195, 247, 0.3) 60%,
+        transparent 100%
+    );
+}
+
+/* Each timeline row */
+.timeline-item {
+    position: relative;
+    padding-left: 28px;
+    padding-bottom: 20px;
+    animation: slide-in 0.45s ease both;
+    animation-delay: calc(var(--i, 0) * 90ms + 300ms);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: var(--timeline-x);
+    top: 22px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #1e1e1e;
+    border: 2px solid #4fc3f7;
+    transform: translateX(-50%);
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+    z-index: 1;
+}
+
+.timeline-item:hover .timeline-dot {
+    background: #4fc3f7;
+    box-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+}
+
+/* Card */
 .experience-card {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     background: #252526;
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 10px;
+    padding: 18px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     border-left: 3px solid transparent;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
@@ -49,18 +102,19 @@
 }
 
 .card-left {
-    flex: 0 0 30%;
+    flex: 0 0 28%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 4px;
 }
 
 .experience-image {
     width: 100%;
-    max-width: 180px;
+    max-width: 160px;
     height: auto;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .card-right {
@@ -68,44 +122,103 @@
     padding-left: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .experience-title {
-    font-size: 1.0rem;
+    font-size: 1rem;
     color: #4fc3f7;
     font-weight: bold;
-    margin: 0.1rem;
-}
-
-.experience-position {
-    font-size: 0.9rem;
-    color: #ececec;
-    margin: 0.1rem;
-}
-
-.experience-details {
-    padding: 0;
-    list-style-type: none;
-}
-.experience-description {
-    font-size: 0.8rem;
-    color: #b0b0b0;
-    margin-bottom: 5px;
+    margin: 0 0 2px 0;
 }
 
 .experience-years {
     font-size: 0.7rem;
-    color: #888888;
+    color: #888;
+    display: block;
+    margin-bottom: 4px;
 }
 
-@keyframes fadeIn {
+.experience-position {
+    font-size: 0.85rem;
+    color: #ececec;
+    margin: 0 0 8px 0;
+    font-weight: normal;
+}
+
+.experience-details {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.experience-description {
+    font-size: 0.78rem;
+    color: #b0b0b0;
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+
+.experience-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.experience-skill-tag {
+    font-size: 0.65rem;
+    color: #61dafb;
+    background: rgba(97, 218, 251, 0.1);
+    border: 1px solid rgba(97, 218, 251, 0.3);
+    border-radius: 3px;
+    padding: 2px 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.experience-skill-tag:hover {
+    background: rgba(97, 218, 251, 0.25);
+    border-color: rgba(97, 218, 251, 0.6);
+    transform: scale(1.05);
+}
+
+.experience-description::before {
+    content: '▸ ';
+    color: #4fc3f7;
+    opacity: 0.6;
+}
+
+@keyframes slide-in {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateX(-14px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .experiences-grid {
+        --timeline-x: 10px;
+    }
+
+    .timeline-item {
+        padding-left: 22px;
+    }
+
+    .experience-card {
+        flex-direction: column;
+    }
+
+    .card-left {
+        margin-bottom: 10px;
+        width: 100%;
+        flex: unset;
+    }
+
+    .card-right {
+        padding-left: 0;
     }
 }

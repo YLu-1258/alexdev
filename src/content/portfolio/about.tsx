@@ -24,50 +24,54 @@ const About: React.FC = () => {
 
     return (
         <div className={`about-container ${isVisible ? "visible" : ""}`}>
-            <div className="about-header">
-                <h1 className="about-title">{aboutContent.title}</h1>
-                <img
-                    src={aboutContent.picture}
-                    alt="Headshot"
-                    className="about-headshot"
-                />
-                
-            </div>
-            <p className="about-description">{aboutContent.description}</p>
-            <p className="about-extras">{aboutContent.extras}</p>
-            <div className="contact-icons">
-                <a
-                    href="https://github.com/YLu-1258"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-icon github"
-                >
-                    <FaGithub />
-                </a>
-                <a
-                    href="https://www.linkedin.com/in/alexanderlu1258/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-icon linkedin"
-                >
-                    <FaLinkedin />
-                </a>
-                <a
-                    href="https://twitter.com/your-profile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-icon twitter"
-                >
-                    <FaTwitter />
-                </a>
-                <a
-                    href="mailto:alexander.lu@berkeley.edu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-icon email"
-                >
-                    <FaEnvelope />
-                </a>
+            <div className="about-hero">
+                <div className="about-hero-text">
+                    <span className="about-comment">// about.tsx</span>
+                    <h1 className="about-title">{aboutContent.title}</h1>
+                    <p className="about-description">{aboutContent.description}</p>
+                    <p className="about-extras">{aboutContent.extras}</p>
+                    <div className="contact-icons">
+                        <a
+                            href="https://github.com/YLu-1258"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact-icon github"
+                        >
+                            <FaGithub />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/alexanderlu1258/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact-icon linkedin"
+                        >
+                            <FaLinkedin />
+                        </a>
+                        <a
+                            href="https://twitter.com/your-profile"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact-icon twitter"
+                        >
+                            <FaTwitter />
+                        </a>
+                        <a
+                            href="mailto:alexander.lu@berkeley.edu"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact-icon email"
+                        >
+                            <FaEnvelope />
+                        </a>
+                    </div>
+                </div>
+                <div className="about-hero-photo">
+                    <img
+                        src={aboutContent.picture}
+                        alt="Headshot"
+                        className="about-headshot"
+                    />
+                </div>
             </div>
         </div>
     );

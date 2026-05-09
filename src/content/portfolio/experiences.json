@@ -8,7 +8,8 @@
                 "Implementing unsupervised time-series anomaly detection and root cause analysis across hardware data from 200+ devices."
             ],
             "years": "April 2026 – Present",
-            "picture": "/img/apple.png"
+            "picture": "/img/apple.png",
+            "skills": ["Hardware Automation", "Time Series Analysis", "Anomaly Detection", "Agent Harnesses", "PostgreSQL", "Python", "Statistical Modeling", "Data Visualization", "Robotics", "Dependency Management", "CI/CD Pipelines"]
         },
         {
             "company": "Amazon – Traffic Engineering",
@@ -19,7 +20,8 @@
                 "Reduced deployment time by 59% and cut potential human error points by 82%, improving production reliability."
             ],
             "years": "January 2026 – April 2026",
-            "picture": "/img/amazon.jpg"
+            "picture": "/img/amazon.jpg",
+            "skills": ["AWS", "Distributed Systems", "Python", "TypeScript/HTML/CSS", "Tampermonkey", "Agent Harnesses", "CI/CD Pipelines"]
         },
         {
             "company": "Berkeley AI Research – Berkeley Speech Group",
@@ -31,7 +33,8 @@
                 "Implemented PUCT-based tree search sampler enabling LLMs to continuously evolve programs across a structured search tree."
             ],
             "years": "May 2025 – Present",
-            "picture": "/img/BAIR.png"
+            "picture": "/img/BAIR.png",
+            "skills": ["Reinforcement Learning", "LLM Fine-Tuning", "Python", "PyTorch", "vERL", "Tree Search Algorithms", "Continual Learning", "Agent Harnesses"]
         },
         {
             "company": "UCSF Weill Institute for Neurosciences – Chen Lab",
@@ -43,7 +46,8 @@
                 "Optimized memory usage in a seizure-detection Python library from 200GB+ down to 4GB via chunking."
             ],
             "years": "Jan 2025 – Dec 2025",
-            "picture": "/img/UCSF_logo.png"
+            "picture": "/img/UCSF_logo.png",
+            "skills": ["Signal Processing", "Time Series Analysis", "Python", "SciPy", "Machine Learning", "Numpy", "Pandas", "PyTorch"]
         }
     ]
 }

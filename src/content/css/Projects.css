@@ -7,7 +7,6 @@
     color: #dcdcdc;
     background-color: #1e1e1e;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 800px;
     margin: auto;
 }
@@ -21,13 +20,20 @@
     text-align: center;
     font-size: 2rem;
     color: #61dafb;
-    margin-bottom: 1rem;
+    margin-bottom: 0.55rem;
+}
+
+.page-blurb {
+    text-align: center;
+    margin: 0 0 1.25rem;
+    color: #9aa0a6;
+    font-size: 0.9rem;
 }
 
 .projects-grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adapts to available space */
+    grid-template-columns: 1fr;
     align-items: start;
 }
 
@@ -42,6 +48,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     border-left: 3px solid transparent;
     cursor: pointer;
+    animation: slide-up 0.4s ease both;
+    animation-delay: calc(var(--i, 0) * 70ms + 250ms);
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
@@ -68,35 +76,54 @@
 
 .card-right {
     flex: 1;
-    padding-left: 15px;
+    padding-left: 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .project-title {
-    font-size: 1.0rem;
+    font-size: 0.95rem;
     color: #4fc3f7;
-    margin-bottom: 0px;
+    margin: 0 0 4px 0;
     font-weight: bold;
 }
 
 .project-details {
     font-size: 0.8rem;
     color: #b0b0b0;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 5px;
 }
 
-.project-years {
-    font-size: 0.7rem;
-    color: #888888;
+.project-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
 }
 
-@keyframes fadeIn {
+.project-skill-tag {
+    font-size: 0.65rem;
+    color: #98c379;
+    background: rgba(152, 195, 121, 0.1);
+    border: 1px solid rgba(152, 195, 121, 0.3);
+    border-radius: 3px;
+    padding: 2px 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.project-skill-tag:hover {
+    background: rgba(152, 195, 121, 0.25);
+    border-color: rgba(152, 195, 121, 0.6);
+    transform: scale(1.05);
+}
+
+@keyframes slide-up {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(14px);
     }
     to {
         opacity: 1;
@@ -106,11 +133,11 @@
 
 @media (max-width: 600px) {
     .projects-grid {
-        grid-template-columns: 1fr; /* Single-column layout */
+        grid-template-columns: 1fr;
     }
 
     .project-card {
-        flex-direction: column; /* Stack content for smaller screens */
+        flex-direction: column;
         align-items: center;
     }
 

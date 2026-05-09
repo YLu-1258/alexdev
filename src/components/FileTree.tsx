@@ -112,7 +112,7 @@ const tree: TreeNode[] = [
       {
         type: "external",
         name: "Resume.pdf",
-        href: "/downloads/AlexanderLu.pdf",
+        href: "/downloads/Alex_Lu_Resume.pdf",
         download: true,
       },
       {

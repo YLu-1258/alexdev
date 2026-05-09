@@ -2,10 +2,10 @@
 title: Cracking Dynammic Programming
 date: 2025-06-23
 tags:
-  - Algorithms
-  - DAGs
-  - Dynammic Programming
-  - C++
+  - Algorithms & Data Structures
+  - DAGs <hidden>
+  - Dynammic Programming <hidden>
+  - C/C++
 description: All dynamic programming problems may be modeled as a DAG of sub problems. Once you topologically sort that DAG, even tricky challenges, like finding the longest increasing subsequence or stacking cuboids, become as simple as tracing the longest path through your map.
 ---
 

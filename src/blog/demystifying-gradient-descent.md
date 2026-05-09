@@ -3,9 +3,9 @@ title: To Descend or Not to Descend? Gradient Descent for Dummies
 date: 2025-07-08
 tags:
   - Machine Learning
-  - Algorithms
-  - Gradient Descent
-  - Simulation
+  - Algorithms & Data Structures
+  - Gradient Descent <hidden>
+  - Simulation <hidden>
   - Physics
   - Math
 description: How does gradient descent iteratively discover local minimas? How exactly was this algorithm invented from the ground up? What are the limitations of traditional gradient descent?

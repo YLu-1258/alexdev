@@ -50,11 +50,11 @@ const MainDisplay: React.FC<MainDisplayProps> = ({
       </div>
 
       {/* ✅ Mobile Files Button */}
-      {onOpenFiles && (
+      {/* {onOpenFiles && (
         <button className="mobile-files-bottom-btn" onClick={onOpenFiles}>
           Files
         </button>
-      )}
+      )} */}
     </div>
   );
 };
