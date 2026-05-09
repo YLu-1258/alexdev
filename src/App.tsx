@@ -17,6 +17,23 @@ import BlogPostView from "./blog/render/BlogPostView";
 import { getPost } from "./blog/render/loadPosts";
 
 const MOBILE_BP = 768;
+const THEME_KEY = 'alexdev-theme';
+const FONT_KEY = 'alexdev-font';
+const EFFECT_KEY = 'alexdev-effect';
+
+type ThemeMode = 'dark' | 'light' | 'ocean' | 'sunset';
+type FontMode = 'fira' | 'serif' | 'rounded';
+type EffectMode = 'none' | 'glow' | 'grain';
+
+const THEME_OPTIONS: ThemeMode[] = ['dark', 'light', 'ocean', 'sunset'];
+const FONT_OPTIONS: FontMode[] = ['fira', 'serif', 'rounded'];
+const EFFECT_OPTIONS: EffectMode[] = ['none', 'glow', 'grain'];
+
+const getStored = <T extends string>(key: string, fallback: T, valid: readonly T[]): T => {
+  if (typeof window === 'undefined') return fallback;
+  const stored = window.localStorage.getItem(key) as T | null;
+  return stored && valid.includes(stored) ? stored : fallback;
+};
 
 const App: React.FC = () => {
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -35,6 +52,9 @@ const App: React.FC = () => {
     { id: "6", title: 'Awards', type: 'awards', content: <Awards /> },
   ]);
   const [activeTabId, setActiveTabId] = useState<string>("0");
+  const [theme, setTheme] = useState<ThemeMode>(() => getStored(THEME_KEY, 'dark', THEME_OPTIONS));
+  const [font, setFont] = useState<FontMode>(() => getStored(FONT_KEY, 'fira', FONT_OPTIONS));
+  const [effect, setEffect] = useState<EffectMode>(() => getStored(EFFECT_KEY, 'none', EFFECT_OPTIONS));
 
   // ✅ mobile detection (no window.innerWidth in render)
   const [isMobile, setIsMobile] = useState<boolean>(() =>
@@ -46,6 +66,18 @@ const App: React.FC = () => {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  React.useEffect(() => {
+    window.localStorage.setItem(THEME_KEY, theme);
+  }, [theme]);
+
+  React.useEffect(() => {
+    window.localStorage.setItem(FONT_KEY, font);
+  }, [font]);
+
+  React.useEffect(() => {
+    window.localStorage.setItem(EFFECT_KEY, effect);
+  }, [effect]);
 
   const startResizing = React.useCallback(() => setIsResizing(true), []);
   const stopResizing = React.useCallback(() => setIsResizing(false), []);
@@ -114,9 +146,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app" ref={appRef}>
+    <div className="app" data-theme={theme} data-font={font} data-effects={effect} ref={appRef}>
       {/* ✅ Header gets a "Files" button on mobile */}
-      <Header />
+      <Header
+        theme={theme}
+        font={font}
+        effect={effect}
+        onThemeChange={setTheme}
+        onFontChange={setFont}
+        onEffectChange={setEffect}
+      />
 
       <div className="main-layout">
         {/* Desktop sidebar */}
@@ -139,7 +178,6 @@ const App: React.FC = () => {
           setTabs={setTabs}
           activeTabId={activeTabId}
           setActiveTabId={setActiveTabId}
-          onOpenFiles={undefined}
         />
 
       </div>

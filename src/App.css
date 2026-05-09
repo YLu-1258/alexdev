@@ -2,19 +2,290 @@
 @tailwind components;
 @tailwind utilities;
 
+.app {
+  --header-height: 42px;
+  --bottom-height: 33px;
+  --bg-root: #1a1a1a;
+  --bg-panel: #252526;
+  --bg-content: #1e1e1e;
+  --bg-surface: #252526;
+  --bg-surface-soft: #1f1f1f;
+  --bg-elevated: #2a2a2a;
+  --text-main: #ffffff;
+  --text-muted: #aaaaaa;
+  --text-soft: #c8c8c8;
+  --accent: #007acc;
+  --hover-surface: #333333;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --container-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --container-border: transparent;
+  --scroll-track: #1e1e1e;
+  --scroll-thumb: #4e4e4e;
+  --scroll-thumb-hover: #666666;
+  --header-grad-start: #0057a8;
+  --header-grad-mid: #007acc;
+  --header-grad-end: #0099cc;
+  --header-title: #f4f8ff;
+  --header-select-bg: rgba(0, 0, 0, 0.18);
+  --header-select-border: rgba(255, 255, 255, 0.35);
+}
+
+.app[data-theme='light'] {
+  --bg-root: #f3f5f8;
+  --bg-panel: #ffffff;
+  --bg-content: #f7f9fc;
+  --bg-surface: #ffffff;
+  --bg-surface-soft: #f4f7fb;
+  --bg-elevated: #eef3f9;
+  --text-main: #1e2a36;
+  --text-muted: #5e6b78;
+  --text-soft: #3f4d5b;
+  --accent: #3a75c4;
+  --hover-surface: #e6edf5;
+  --card-border: rgba(30, 70, 120, 0.16);
+  --container-shadow: 0 8px 20px rgba(42, 78, 124, 0.08);
+  --container-border: rgba(73, 117, 176, 0.2);
+  --scroll-track: #dce5f0;
+  --scroll-thumb: #95a9bf;
+  --scroll-thumb-hover: #6f89a5;
+  --header-grad-start: #dde9fb;
+  --header-grad-mid: #c5daf8;
+  --header-grad-end: #b4d2f8;
+  --header-title: #25374b;
+  --header-select-bg: rgba(255, 255, 255, 0.85);
+  --header-select-border: rgba(40, 60, 80, 0.25);
+}
+
+.app[data-theme='ocean'] {
+  --bg-root: #0a1f29;
+  --bg-panel: #113445;
+  --bg-content: #0d2b39;
+  --bg-surface: #153b4e;
+  --bg-surface-soft: #113243;
+  --bg-elevated: #1d475b;
+  --text-main: #e8f6ff;
+  --text-muted: #9ec6d8;
+  --text-soft: #cae8f8;
+  --accent: #00a7d6;
+  --hover-surface: #18455a;
+  --card-border: rgba(112, 215, 247, 0.25);
+  --container-shadow: 0 10px 24px rgba(0, 13, 20, 0.35);
+  --container-border: rgba(90, 198, 235, 0.26);
+  --scroll-track: #102b38;
+  --scroll-thumb: #2d708a;
+  --scroll-thumb-hover: #3f89a8;
+  --header-grad-start: #0d4f64;
+  --header-grad-mid: #0d6f8d;
+  --header-grad-end: #14a0b9;
+  --header-title: #edfaff;
+  --header-select-bg: rgba(0, 0, 0, 0.22);
+  --header-select-border: rgba(224, 245, 255, 0.35);
+}
+
+.app[data-theme='sunset'] {
+  --bg-root: #21161c;
+  --bg-panel: #3a222f;
+  --bg-content: #2f1d28;
+  --bg-surface: #3d2633;
+  --bg-surface-soft: #2f1e29;
+  --bg-elevated: #4b2c3d;
+  --text-main: #ffeef5;
+  --text-muted: #d9a9b9;
+  --text-soft: #f5d2de;
+  --accent: #ff7f50;
+  --hover-surface: #4d2b3d;
+  --card-border: rgba(255, 186, 156, 0.28);
+  --container-shadow: 0 10px 24px rgba(17, 6, 11, 0.35);
+  --container-border: rgba(243, 134, 99, 0.35);
+  --scroll-track: #2c1a25;
+  --scroll-thumb: #9e5c76;
+  --scroll-thumb-hover: #bd7893;
+  --header-grad-start: #793149;
+  --header-grad-mid: #b44864;
+  --header-grad-end: #ec7a67;
+  --header-title: #fff1f6;
+  --header-select-bg: rgba(0, 0, 0, 0.2);
+  --header-select-border: rgba(255, 220, 228, 0.38);
+}
+
+.app[data-font='fira'] {
+  font-family: 'Fira Code', monospace;
+}
+
+.app[data-font='serif'] {
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+}
+
+.app[data-font='serif'] * {
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif !important;
+}
+
+.app[data-font='rounded'] {
+  font-family: 'Avenir Next', 'Nunito', 'Segoe UI', sans-serif;
+}
+
+.app[data-font='rounded'] * {
+  font-family: 'Avenir Next', 'Nunito', 'Segoe UI', sans-serif !important;
+}
+
+.app[data-effects='glow'] .main-display,
+.app[data-effects='glow'] .app-sidebar,
+.app[data-effects='glow'] .content {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 18px rgba(0, 122, 204, 0.18);
+}
+
+.app[data-effects='grain']::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  z-index: 1500;
+  background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0);
+  background-size: 3px 3px;
+}
+
+/* Bridge layer: force nested sections/cards to use theme variables even when their local CSS hardcodes colors. */
+.app .tab-bar {
+  background: var(--bg-content) !important;
+  border-bottom-color: var(--card-border) !important;
+}
+
+.app .tab {
+  background: var(--bg-surface) !important;
+  color: var(--text-soft) !important;
+  border-right-color: var(--card-border) !important;
+}
+
+.app .tab:hover {
+  background: var(--hover-surface) !important;
+}
+
+.app .tab.active {
+  background: var(--bg-content) !important;
+  color: var(--text-main) !important;
+  border-bottom-color: var(--accent) !important;
+}
+
+.app .file-tree,
+.app .tree-item,
+.app .tree-item.file,
+.app .tree-item.folder {
+  background: transparent;
+  color: var(--text-soft) !important;
+}
+
+.app .file-tree {
+  background: var(--bg-panel) !important;
+}
+
+.app .tree-item:hover {
+  background: var(--hover-surface) !important;
+}
+
+.app .file a {
+  color: var(--text-soft) !important;
+}
+
+.app .file a:hover {
+  color: var(--text-main) !important;
+}
+
+.app .tree-children::before,
+.app .tree-item::before {
+  border-color: var(--card-border) !important;
+  background: var(--card-border) !important;
+}
+
+.app .tree-children > .tree-item:last-child::after,
+.app .tree-children > .tree-node:last-child > .tree-item::after {
+  background: var(--bg-panel) !important;
+}
+
+.app .content,
+.app .main-display,
+.app .app-sidebar,
+.app .filetree-drawer-panel {
+  background-color: var(--bg-panel) !important;
+}
+
+.app .about-container,
+.app .experiences-container,
+.app .research-container,
+.app .projects-container,
+.app .skills-page-container,
+.app .courses-page-container,
+.app .awards-container,
+.app .blog-wrap {
+  background: var(--bg-surface-soft) !important;
+  color: var(--text-soft) !important;
+  border: 1px solid var(--container-border) !important;
+  box-shadow: var(--container-shadow) !important;
+}
+
+.app .experience-card,
+.app .project-card,
+.app .pub-card,
+.app .award-card,
+.app .semester-card,
+.app .course-card,
+.app .skills-cloud,
+.app .citations-panel,
+.app .citation-item {
+  background: var(--bg-surface) !important;
+  color: var(--text-soft) !important;
+  border-color: var(--card-border) !important;
+}
+
+.app .about-title,
+.app .page-title,
+.app .experience-title,
+.app .project-title,
+.app .award-title,
+.app .pub-title,
+.app .blog-title {
+  color: var(--accent) !important;
+}
+
+.app .about-description,
+.app .about-extras,
+.app .project-details,
+.app .pub-description,
+.app .award-details,
+.app .course-name,
+.app .citation-name,
+.app .experience-description,
+.app .blog-desc,
+.app .blog-body {
+  color: var(--text-soft) !important;
+}
+
+.app .about-comment,
+.app .experience-years,
+.app .pub-meta,
+.app .award-years,
+.app .course-grade,
+.app .blog-meta,
+.app .placeholder,
+.app .page-blurb {
+  color: var(--text-muted) !important;
+}
+
 
 .app {
     display: flex;
 	flex-direction: column;
     height: 100vh;
     overflow: hidden;
+  background-color: var(--bg-root);
+  color: var(--text-main);
 }
 
 .main-layout {
 	display: flex;
 	width: 100%;
 	flex-direction: row;
-	height: calc(100vh - 75px);
+  height: calc(100vh - var(--header-height) - var(--bottom-height));
 	bottom: 30px;
 	top: 25px;
 	flex-grow: 1;
@@ -28,7 +299,7 @@
 	max-width: 600px;
 	display: flex;
 	flex-direction: row;
-	background-color: #252526;
+  background-color: var(--bg-panel);
 	z-index: 2;
 }
 
@@ -44,7 +315,7 @@
 	cursor: col-resize;
 	resize: horizontal;
 	width: 7px;
-	background: #007acc;
+  background: var(--accent);
 }
 
 .box {
@@ -55,7 +326,7 @@
 .file {
     padding: 8px;
     cursor: pointer;
-	color: white;
+	color: var(--text-main);
 }
 
 .file a {
@@ -65,15 +336,15 @@
 }
 
 .file:hover {
-    background-color: #333;
+  background-color: var(--hover-surface);
 }
 
 .main-display {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: #252526;
-    color: white;
+  background-color: var(--bg-panel);
+  color: var(--text-main);
 }
 
 .tabs {
@@ -86,7 +357,7 @@
     margin-left: 8px;
     background: none;
     border: none;
-    color: white;
+    color: var(--text-main);
     cursor: pointer;
 }
 
@@ -98,13 +369,14 @@
     left: 0;
     right: 0;
     overflow-y: auto; /* Enable scrolling if the content exceeds available space */
-    background-color: #1e1e1e; /* Match the theme */
+    background-color: var(--bg-content); /* Match the theme */
     padding: 10px;
     box-sizing: border-box;
+    color: var(--text-main);
 }
 
 .placeholder {
-    color: #aaa;
+    color: var(--text-muted);
     text-align: center;
     padding: 20px;
 }
@@ -118,7 +390,7 @@
 .resizer {
     width: 3px;
     cursor: ew-resize;
-    background-color: #007acc; /* Matches VSCode blue theme */
+  background-color: var(--accent); /* Matches selected theme */
     z-index: 10;
 }
 
@@ -126,8 +398,8 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: #252526;
-    color: white;
+    background-color: var(--bg-panel);
+    color: var(--text-main);
 }
 
 /* Scrollbar styles for the IDE theme */
@@ -137,20 +409,20 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #1e1e1e;
+  background: var(--scroll-track);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #4e4e4e;
+  background: var(--scroll-thumb);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #666;
+  background: var(--scroll-thumb-hover);
 }
 
 ::-webkit-scrollbar-corner {
-    background: #1e1e1e;
+  background: var(--scroll-track);
 }
 
 @layer base {
@@ -215,6 +487,10 @@ body, html {
 }
 
 @media (max-width: 768px) {
+  .app {
+    --header-height: 50px;
+  }
+
   .mobile-files-btn {
     display: inline-flex;
     position: fixed;

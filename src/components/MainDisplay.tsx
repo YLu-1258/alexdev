@@ -7,7 +7,6 @@ interface MainDisplayProps {
   activeTabId: string | "0";
   setActiveTabId: React.Dispatch<React.SetStateAction<string>>;
   setTabs: React.Dispatch<React.SetStateAction<Tab[]>>;
-  onOpenFiles?: () => void;   // ✅ new
 }
 
 const MainDisplay: React.FC<MainDisplayProps> = ({
@@ -15,7 +14,6 @@ const MainDisplay: React.FC<MainDisplayProps> = ({
   setTabs,
   activeTabId,
   setActiveTabId,
-  onOpenFiles,
 }) => {
   const onCloseTab = (id: string) => {
     const tabIndex = tabs.findIndex(tab => tab.id === id);
@@ -48,13 +46,6 @@ const MainDisplay: React.FC<MainDisplayProps> = ({
           </div>
         )}
       </div>
-
-      {/* ✅ Mobile Files Button */}
-      {/* {onOpenFiles && (
-        <button className="mobile-files-bottom-btn" onClick={onOpenFiles}>
-          Files
-        </button>
-      )} */}
     </div>
   );
 };
