@@ -1,6 +1,5 @@
 {
-    "Technicals": ["Computer Architecture", "Computer Networking", "CyberSecurity", "Algorithms", "Data Structures", "Linear Algebra", "Machine Learning", "Artificial Intelligence", "AGILE development"],
-    "Programming": ["C++/C", "Java", "Python", "x86/ARM asm", "Swift", "C#", "Typescript", "Bash", "PowerShell", "SQL", "MATLAB"],
-    "Frameworks": ["Pytorch", "Tensorflow", "Deeplearning4J", "Python Flask", "Java Spring Boot", "React", "Next.js", "Node.js", "Django", "Sveltekit", "Bootstrap"],
-    "Tools": ["Git", "Docker", "VSCode", "Nginx", "Linux OS", "AWS EC2/RDS"]
+    "Languages": ["C/C++", "Java", "Python", "Rust", "TypeScript/HTML/CSS", "SQL", "Swift", "x86/ARM asm"],
+    "Frameworks & Tools": ["PyTorch", "TensorFlow", "scikit-learn", "VERL", "vLLM", "TransformerLens", "NumPy", "Pandas", "SciPy", "FAISS", "React.js", "Flask", "Spring Boot", "Node.js", "Docker", "AWS", "Git", "Linux"],
+    "Concepts": ["Reinforcement Learning", "LLM Fine-Tuning", "Mechanistic Interpretability", "Distributed Training", "Time Series Analysis", "Signal Processing", "Statistical Modeling", "Distributed Systems", "Computer Architecture", "Algorithms & Data Structures"]
 }

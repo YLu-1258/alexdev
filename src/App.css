@@ -132,27 +132,25 @@
 
 /* Scrollbar styles for the IDE theme */
 ::-webkit-scrollbar {
-    width: 12px; /* Adjust the width for vertical scrollbar */
-    height: 12px; /* Adjust the height for horizontal scrollbar */
+    width: 4px;
+    height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1e1e1e; /* Dark background for the track, matching the VSCode theme */
-    border-radius: 6px; /* Rounded corners for the track */
+    background: #1e1e1e;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #4e4e4e; /* Thumb color to match the theme */
-    border-radius: 6px; /* Rounded corners for the thumb */
-    border: 3px solid #1e1e1e; /* Creates padding effect between the thumb and track */
+    background: #4e4e4e;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #666; /* Lighter shade for hover effect */
+    background: #666;
 }
 
 ::-webkit-scrollbar-corner {
-    background: #1e1e1e; /* Background for the corner where vertical and horizontal scrollbars meet */
+    background: #1e1e1e;
 }
 
 @layer base {

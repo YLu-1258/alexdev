@@ -1,40 +1,40 @@
 {
     "projects" : [
         {
-            "name":"EigenAgent",
-            "description":"Fully local, offline AI agent with on-device model control.",
+            "name": "EigenAgent",
+            "description": "Fully local LLM desktop assistant built with Rust, Tauri, and React. Runs GGUF-quantized models offline via llama.cpp with token-level streaming and MCP-based tool invocation.",
             "language": "/img/RustLogo.webp",
             "url": "https://github.com/YLu-1258/eigenAgent"
         },
         {
-            "name":"Tapestry",
-            "description":"Embedding-based semantic Obsidian graph visualization tool.",
+            "name": "Mechanistic Interpretability Toolkit",
+            "description": "Interpretability toolkit for GPT-2 and Qwen3 supporting token attribution, attention head analysis, and activation patching via TransformerLens, FastAPI, and React. Streams logit-lens predictions over WebSocket.",
+            "language": "/img/python.png",
+            "url": "https://github.com/YLu-1258/MechInterp"
+        },
+        {
+            "name": "Semantic Backlinks Generator",
+            "description": "Python tool for Obsidian-style blogs using sentence transformers and FAISS for efficient semantic similarity search. Includes a graph visualization pipeline for tuning density and confidence.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/tapestry"
         },
         {
-            "name":"CoT Cue Articulation",
-            "description":"Fine-tuning CoT faithfulness of frontier reasoning models.",
+            "name": "CoT Cue Articulation",
+            "description": "Fine-tuning pipeline studying chain-of-thought faithfulness in frontier reasoning models.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/CoT-Cue-Articuation"
         },
         {
-            "name":"Rodent Seizure Detection",
-            "description":"Analyze EEG features to detect seizures through a SVM.",
+            "name": "Rodent Seizure Detection",
+            "description": "EEG feature extraction and SVM-based seizure detection pipeline for epileptic mice.",
             "language": "/img/python.png",
             "url": "https://github.com/YLu-1258/seizure_analysis"
         },
         {
-            "name":"MacOSClipboard",
-            "description":"A copy-paste clipboard built for MacOS systems",
+            "name": "MacOSClipboard",
+            "description": "A copy-paste clipboard manager built for macOS in Swift.",
             "language": "/img/swift.png",
             "url": "https://github.com/YLu-1258/MacOSClipboard"
-        },
-        {
-            "name":"Helios Discord Bot",
-            "description":"An all-in-one music, moderation, and utility bot.",
-            "language": "/img/python.png",
-            "url": "https://github.com/YLu-1258/Helios"
         }
     ]
 }

@@ -1,6 +1,6 @@
 {
     "picture": "img/headshot.jpeg",
     "title": "Hi, I am Alexander Lu",
-    "description": "I am an EECS undergrad at UC - Berkeley pursuing a minor in Applied Mathematics interested in AI systems. I am a BAIR affiliated researcher working on LLM interpretability. Additionally, I'm also inventing AI solutions towards detecting epilepsy at the UCSF Weill Neuroscience Center. I am open to research and internship opportunities in AI and SWE!",
-    "extras": "Beyond coding, I enjoy exploring design patterns, contributing to open-source, and sharing my knowledge through blogs and tutorials!"
+    "description": "EECS undergrad at UC Berkeley (4.00 GPA) with a Mathematics minor. SWE intern at Apple and Amazon, and an ACL 2026 publication from ML research at BAIR and UCSF. I build and ship systems at scale: 300K+ TPM traffic infrastructure, 95%-accuracy seizure detection, and RL pipelines fine-tuning 9 reasoning models.",
+    "extras": "Beyond research, I enjoy building local-first tools, contributing to open source, and writing about AI systems on my blog."
 }

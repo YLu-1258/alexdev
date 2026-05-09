@@ -6,8 +6,9 @@ import Awards from "../content/portfolio/awards.tsx";
 import Projects from "../content/portfolio/projects.tsx";
 import Skills from "../content/portfolio/skills.tsx";
 import Experiences from "../content/portfolio/experiences.tsx";
+import Research from "../content/portfolio/research.tsx";
 
-import { FiInfo, FiAward, FiBriefcase, FiLayers, FiTool } from "react-icons/fi";
+import { FiInfo, FiAward, FiBriefcase, FiLayers, FiTool, FiBook } from "react-icons/fi";
 import type { IconType } from "react-icons";
 
 interface BottomBarProps {
@@ -22,16 +23,18 @@ const iconFor: Record<PageType, IconType> = {
   experience: FiBriefcase,
   projects: FiLayers,
   skills: FiTool,
-  blog: FiLayers, // not used here; keep TS happy if blog exists in your union
+  research: FiBook,
+  blog: FiLayers,
 };
 
 const BottomBar: React.FC<BottomBarProps> = ({ handleCreateTab }) => {
   const pages: { title: string; type: PageType; color: string; element: React.ReactNode }[] = [
     { title: "About", type: "about", color: "#e06c75", element: <About /> },
-    { title: "Awards", type: "awards", color: "#de9a4b", element: <Awards /> },
-    { title: "Experience", type: "experience", color: "#f0db54", element: <Experiences /> },
+    { title: "Experience", type: "experience", color: "#de9a4b", element: <Experiences /> },
+    { title: "Research", type: "research", color: "#f0db54", element: <Research /> },
     { title: "Projects", type: "projects", color: "#98c379", element: <Projects /> },
     { title: "Skills", type: "skills", color: "#61afef", element: <Skills /> },
+    { title: "Awards", type: "awards", color: "#c678dd", element: <Awards /> },
   ];
 
   const createPage = (p: (typeof pages)[number]): Page => ({

@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Skills.css';
 
-interface Skills {
-    Technicals: string[];
-    Programming: string[];
-    Frameworks: string[];
-    Tools: string[];
-}
+type Skills = Record<string, string[]>;
 
 interface Course {
     title: string;
@@ -23,12 +18,7 @@ interface Courses {
 }
 
 const Skills: React.FC = () => {
-    const [skills, setSkills] = useState<Skills>({
-        Technicals: [],
-        Programming: [],
-        Frameworks: [],
-        Tools: []
-    });
+    const [skills, setSkills] = useState<Skills>({});
     const [courses, setCourses] = useState<Courses>({ courses: [] });
     const [isVisible, setIsVisible] = useState(false);
 

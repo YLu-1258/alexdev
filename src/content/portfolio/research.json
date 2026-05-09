@@ -1,0 +1,14 @@
+{
+    "publications": [
+        {
+            "title": "Evolutionary Strategies lead to Catastrophic Forgetting in LLMs",
+            "venue": "ACL 2026",
+            "status": "Accepted",
+            "date": "Dec. 2025",
+            "authors": "Immanuel Abdi, Akshat Gupta, Micah Mok, Alexander Lu, Nicholas Lee, Gopala Anumanchipalli",
+            "description": "Demonstrates that gradient-free methods like Evolutionary Strategies induce catastrophic forgetting when fine-tuning LLMs compared to GRPO, driven by denser weight updates and higher ℓ₂ gradient norms.",
+            "arxiv": "https://arxiv.org/abs/2601.20861",
+            "tags": ["Reinforcement Learning", "LLM Fine-Tuning", "Catastrophic Forgetting", "GRPO", "NLP"]
+        }
+    ]
+}

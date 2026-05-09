@@ -11,6 +11,7 @@ import Projects from './content/portfolio/projects';
 import Skills from './content/portfolio/skills';
 import Experiences from './content/portfolio/experiences';
 
+import Research from './content/portfolio/research';
 import BlogPostView from "./blog/render/BlogPostView";
 import { getPost } from "./blog/render/loadPosts";
 
@@ -25,10 +26,11 @@ const App: React.FC = () => {
 
   const [tabs, setTabs] = useState<Tab[]>([
     { id: "0", title: 'About', type: 'about', content: <About /> },
-    { id: "1", title: 'Awards', type: 'awards', content: <Awards /> },
-    { id: "2", title: 'Projects', type: 'projects', content: <Projects /> },
-    { id: "3", title: 'Skills', type: 'skills', content: <Skills /> },
-    { id: "4", title: 'Experience', type: 'experience', content: <Experiences /> },
+    { id: "1", title: 'Experience', type: 'experience', content: <Experiences /> },
+    { id: "2", title: 'Research', type: 'research', content: <Research /> },
+    { id: "3", title: 'Projects', type: 'projects', content: <Projects /> },
+    { id: "4", title: 'Skills', type: 'skills', content: <Skills /> },
+    { id: "5", title: 'Awards', type: 'awards', content: <Awards /> },
   ]);
   const [activeTabId, setActiveTabId] = useState<string>("0");
 
