@@ -3,12 +3,38 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 30px; /* Adjust the height as needed */
-    background-color: #626262;
+    height: 30px;
+    background-color: var(--bg-panel);
     display: flex;
-    align-items: stretch; /* Ensure children stretch to the full height */
-    border-top: #007acc 3px solid;
+    align-items: stretch;
+    border-top: var(--accent, #007acc) 3px solid;
     z-index: 1000;
+}
+
+.bottom-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 14px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.bottom-clock {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+}
+
+.bottom-shortcut {
+    font-size: 11px;
+    color: var(--text-muted);
+    opacity: 0.6;
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    letter-spacing: 0.02em;
 }
 
 .buttons-container {

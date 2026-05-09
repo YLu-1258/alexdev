@@ -108,8 +108,116 @@
   --header-select-border: rgba(255, 220, 228, 0.38);
 }
 
+.app[data-theme='forest'] {
+  --bg-root: #0c1a0f;
+  --bg-panel: #132017;
+  --bg-content: #0f1c12;
+  --bg-surface: #172a1c;
+  --bg-surface-soft: #131f16;
+  --bg-elevated: #1e3323;
+  --text-main: #ceebd8;
+  --text-muted: #658f73;
+  --text-soft: #a0c8ae;
+  --accent: #3dba6e;
+  --hover-surface: #1b3020;
+  --card-border: rgba(61, 186, 110, 0.2);
+  --container-shadow: 0 10px 24px rgba(2, 10, 4, 0.45);
+  --container-border: rgba(61, 186, 110, 0.22);
+  --scroll-track: #0f1c12;
+  --scroll-thumb: #2a6b40;
+  --scroll-thumb-hover: #3a8f56;
+  --header-grad-start: #17401f;
+  --header-grad-mid: #1f5a2c;
+  --header-grad-end: #287a3a;
+  --header-title: #ceebd8;
+  --header-select-bg: rgba(0, 0, 0, 0.22);
+  --header-select-border: rgba(170, 230, 190, 0.35);
+}
+
+.app[data-theme='nord'] {
+  --bg-root: #2e3440;
+  --bg-panel: #3b4252;
+  --bg-content: #2e3440;
+  --bg-surface: #3b4252;
+  --bg-surface-soft: #333b4a;
+  --bg-elevated: #434c5e;
+  --text-main: #eceff4;
+  --text-muted: #7b8fa8;
+  --text-soft: #d8dee9;
+  --accent: #88c0d0;
+  --hover-surface: #434c5e;
+  --card-border: rgba(136, 192, 208, 0.22);
+  --container-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  --container-border: rgba(136, 192, 208, 0.24);
+  --scroll-track: #2e3440;
+  --scroll-thumb: #5e81ac;
+  --scroll-thumb-hover: #81a1c1;
+  --header-grad-start: #3b4252;
+  --header-grad-mid: #4c566a;
+  --header-grad-end: #5e81ac;
+  --header-title: #eceff4;
+  --header-select-bg: rgba(0, 0, 0, 0.2);
+  --header-select-border: rgba(216, 222, 233, 0.3);
+}
+
+.app[data-theme='midnight'] {
+  --bg-root: #0d0c1f;
+  --bg-panel: #161428;
+  --bg-content: #100f22;
+  --bg-surface: #1c1a35;
+  --bg-surface-soft: #130f28;
+  --bg-elevated: #221f40;
+  --text-main: #e8e4ff;
+  --text-muted: #7a75b0;
+  --text-soft: #bab6e8;
+  --accent: #9d87f5;
+  --hover-surface: #201c3e;
+  --card-border: rgba(157, 135, 245, 0.22);
+  --container-shadow: 0 10px 24px rgba(5, 3, 20, 0.5);
+  --container-border: rgba(157, 135, 245, 0.26);
+  --scroll-track: #100f22;
+  --scroll-thumb: #5c44c4;
+  --scroll-thumb-hover: #7a62de;
+  --header-grad-start: #231e4c;
+  --header-grad-mid: #332a68;
+  --header-grad-end: #4e3d96;
+  --header-title: #e8e4ff;
+  --header-select-bg: rgba(0, 0, 0, 0.24);
+  --header-select-border: rgba(210, 200, 255, 0.32);
+}
+
+.app[data-theme='rose'] {
+  --bg-root: #160c12;
+  --bg-panel: #26111e;
+  --bg-content: #1d0d18;
+  --bg-surface: #2e1425;
+  --bg-surface-soft: #24101f;
+  --bg-elevated: #3b1a30;
+  --text-main: #ffe0ef;
+  --text-muted: #a85a78;
+  --text-soft: #e8aac8;
+  --accent: #f05d9e;
+  --hover-surface: #381a2e;
+  --card-border: rgba(240, 93, 158, 0.22);
+  --container-shadow: 0 10px 24px rgba(15, 3, 10, 0.5);
+  --container-border: rgba(240, 93, 158, 0.26);
+  --scroll-track: #1d0d18;
+  --scroll-thumb: #8c2050;
+  --scroll-thumb-hover: #b52868;
+  --header-grad-start: #7a1840;
+  --header-grad-mid: #a81f58;
+  --header-grad-end: #d42870;
+  --header-title: #ffe0ef;
+  --header-select-bg: rgba(0, 0, 0, 0.22);
+  --header-select-border: rgba(255, 185, 220, 0.35);
+}
+
 .app[data-font='fira'] {
   font-family: 'Fira Code', monospace;
+}
+
+.app[data-font='fira'] * {
+  font-family: 'Fira Code', monospace !important;
 }
 
 .app[data-font='serif'] {
@@ -128,10 +236,28 @@
   font-family: 'Avenir Next', 'Nunito', 'Segoe UI', sans-serif !important;
 }
 
+.app[data-font='system'] {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.app[data-font='system'] * {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.app[data-font='mono'] {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+}
+
+.app[data-font='mono'] * {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace !important;
+}
+
+/* ── Effects ── */
+
 .app[data-effects='glow'] .main-display,
 .app[data-effects='glow'] .app-sidebar,
 .app[data-effects='glow'] .content {
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 18px rgba(0, 122, 204, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 22px color-mix(in srgb, var(--accent) 28%, transparent);
 }
 
 .app[data-effects='grain']::after {
@@ -139,10 +265,77 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.06;
+  opacity: 0.08;
   z-index: 1500;
-  background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0);
-  background-size: 3px 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+}
+
+/* CRT horizontal scanlines */
+.app[data-effects='scanlines']::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1500;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.09) 2px,
+    rgba(0, 0, 0, 0.09) 4px
+  );
+}
+
+/* Frosted glass panels */
+.app[data-effects='blur'] .app-sidebar,
+.app[data-effects='blur'] .main-display,
+.app[data-effects='blur'] .content {
+  background-color: color-mix(in srgb, var(--bg-panel) 62%, transparent) !important;
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+}
+
+.app[data-effects='blur'] {
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    color-mix(in srgb, var(--accent) 12%, var(--bg-root)) 0%,
+    var(--bg-root) 60%
+  ) !important;
+}
+
+/* Multi-layer neon glow */
+.app[data-effects='neon'] .app-sidebar,
+.app[data-effects='neon'] .main-display {
+  box-shadow:
+    0 0 8px  color-mix(in srgb, var(--accent) 45%, transparent),
+    0 0 28px color-mix(in srgb, var(--accent) 22%, transparent),
+    0 0 64px color-mix(in srgb, var(--accent) 10%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.app[data-effects='neon'] .about-title,
+.app[data-effects='neon'] .page-title,
+.app[data-effects='neon'] .experience-title,
+.app[data-effects='neon'] .project-title,
+.app[data-effects='neon'] .pub-title,
+.app[data-effects='neon'] .award-title,
+.app[data-effects='neon'] .blog-title {
+  text-shadow:
+    0 0 8px  color-mix(in srgb, var(--accent) 80%, transparent),
+    0 0 24px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.app[data-effects='neon'] .tab.active .tab-title {
+  text-shadow: 0 0 6px var(--accent);
+}
+
+.app[data-effects='neon'] .app-sidebar-resizer {
+  box-shadow: 0 0 6px var(--accent), 0 0 14px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.app[data-effects='neon'] .skill-cloud-tag.active {
+  box-shadow: 0 0 12px var(--accent), 0 0 28px color-mix(in srgb, var(--accent) 40%, transparent) !important;
 }
 
 /* Bridge layer: force nested sections/cards to use theme variables even when their local CSS hardcodes colors. */
@@ -234,7 +427,26 @@
 .app .citation-item {
   background: var(--bg-surface) !important;
   color: var(--text-soft) !important;
-  border-color: var(--card-border) !important;
+}
+
+/* blog code blocks: inline code adapts to theme; pre blocks stay dark for syntax highlighting */
+.app .blog-body :not(pre) > code {
+  background: var(--bg-elevated) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--card-border) !important;
+}
+
+.app .blog-body pre {
+  background: #14141f !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  color: #c9d1d9 !important;   /* base text readable on dark bg regardless of theme */
+  color-scheme: dark;           /* scrollbar stays dark even in light theme */
+}
+
+.app .blog-body pre code {
+  background: transparent !important;
+  border: none !important;
+  /* no color override — let github-dark.css highlight tokens freely */
 }
 
 .app .about-title,
@@ -587,4 +799,34 @@ body, html {
   .filetree-drawer-body * {
     -webkit-tap-highlight-color: transparent;
   }
+}
+
+/* ── Confetti ── */
+@keyframes confetti-fall {
+  0%   { transform: rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: rotate(var(--end-rot)) scale(0.6); opacity: 0; top: 110vh; }
+}
+
+/* ── Achievement toast ── */
+.achievement-toast {
+  position: fixed;
+  bottom: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: var(--text-main);
+  font-size: 0.82rem;
+  z-index: 9000;
+  white-space: nowrap;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 20px color-mix(in srgb, var(--accent) 28%, transparent);
+  animation: toast-pop 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
+  pointer-events: none;
+}
+
+@keyframes toast-pop {
+  from { opacity: 0; transform: translateX(-50%) translateY(14px) scale(0.94); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0)    scale(1); }
 }

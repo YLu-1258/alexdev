@@ -46,6 +46,17 @@ const BottomBar: React.FC<BottomBarProps> = ({ handleCreateTab }) => {
     content: p.element,
   });
 
+  const [time, setTime] = useState(() =>
+    new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  );
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="bottom-bar">
       <div className="buttons-container">
@@ -58,6 +69,10 @@ const BottomBar: React.FC<BottomBarProps> = ({ handleCreateTab }) => {
             onClick={() => handleCreateTab(createPage(p))}
           />
         ))}
+      </div>
+      <div className="bottom-meta">
+        <span className="bottom-shortcut">⌘K</span>
+        <span className="bottom-clock">{time}</span>
       </div>
     </div>
   );

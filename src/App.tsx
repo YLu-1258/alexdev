@@ -3,6 +3,7 @@ import Header from './components/Header';
 import FileTree from './components/FileTree';
 import MainDisplay from './components/MainDisplay';
 import BottomBar from './components/BottomBar';
+import CommandPalette from './components/CommandPalette';
 import './App.css';
 import { Tab, Page } from './components/types';
 import About from './content/portfolio/about';
@@ -21,18 +22,26 @@ const THEME_KEY = 'alexdev-theme';
 const FONT_KEY = 'alexdev-font';
 const EFFECT_KEY = 'alexdev-effect';
 
-type ThemeMode = 'dark' | 'light' | 'ocean' | 'sunset';
-type FontMode = 'fira' | 'serif' | 'rounded';
-type EffectMode = 'none' | 'glow' | 'grain';
+type ThemeMode = 'dark' | 'light' | 'ocean' | 'sunset' | 'forest' | 'nord' | 'midnight' | 'rose';
+type FontMode = 'fira' | 'serif' | 'rounded' | 'system' | 'mono';
+type EffectMode = 'none' | 'glow' | 'grain' | 'scanlines' | 'blur' | 'neon';
 
-const THEME_OPTIONS: ThemeMode[] = ['dark', 'light', 'ocean', 'sunset'];
-const FONT_OPTIONS: FontMode[] = ['fira', 'serif', 'rounded'];
-const EFFECT_OPTIONS: EffectMode[] = ['none', 'glow', 'grain'];
+const THEME_OPTIONS: ThemeMode[] = ['dark', 'light', 'ocean', 'sunset', 'forest', 'nord', 'midnight', 'rose'];
+const DARK_THEMES: ThemeMode[] = ['dark', 'ocean', 'sunset', 'forest', 'nord', 'midnight', 'rose'];
+const FONT_OPTIONS: FontMode[] = ['fira', 'serif', 'rounded', 'system', 'mono'];
+const EFFECT_OPTIONS: EffectMode[] = ['none', 'glow', 'grain', 'scanlines', 'blur', 'neon'];
 
 const getStored = <T extends string>(key: string, fallback: T, valid: readonly T[]): T => {
   if (typeof window === 'undefined') return fallback;
   const stored = window.localStorage.getItem(key) as T | null;
   return stored && valid.includes(stored) ? stored : fallback;
+};
+
+const getInitialTheme = (): ThemeMode => {
+  if (typeof window === 'undefined') return 'dark';
+  const stored = window.localStorage.getItem(THEME_KEY) as ThemeMode | null;
+  if (stored && THEME_OPTIONS.includes(stored)) return stored;
+  return DARK_THEMES[Math.floor(Math.random() * DARK_THEMES.length)];
 };
 
 const App: React.FC = () => {
@@ -52,7 +61,7 @@ const App: React.FC = () => {
     { id: "6", title: 'Awards', type: 'awards', content: <Awards /> },
   ]);
   const [activeTabId, setActiveTabId] = useState<string>("0");
-  const [theme, setTheme] = useState<ThemeMode>(() => getStored(THEME_KEY, 'dark', THEME_OPTIONS));
+  const [theme, setTheme] = useState<ThemeMode>(getInitialTheme);
   const [font, setFont] = useState<FontMode>(() => getStored(FONT_KEY, 'fira', FONT_OPTIONS));
   const [effect, setEffect] = useState<EffectMode>(() => getStored(EFFECT_KEY, 'none', EFFECT_OPTIONS));
 
@@ -103,10 +112,99 @@ const App: React.FC = () => {
     };
   }, [resize, stopResizing]);
 
-  // Close drawer on Escape
-  React.useEffect(() => {
-    return undefined;
+  // ── Command palette ──────────────────────────────────────────────────────
+  const [paletteOpen, setPaletteOpen] = useState(false);
+
+  // ── Konami code + confetti ───────────────────────────────────────────────
+  const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  const konamiIdx = useRef(0);
+  const [toast, setToast] = useState<string | null>(null);
+
+  const fireConfetti = React.useCallback(() => {
+    const colors = ['#ff6b6b','#ffd93d','#6bcb77','#4d96ff','#ff922b','#cc5de8'];
+    Array.from({ length: 55 }).forEach((_, i) => {
+      const el = document.createElement('div');
+      const size = 7 + Math.random() * 8;
+      el.style.cssText = [
+        'position:fixed',
+        `left:${5 + Math.random() * 90}vw`,
+        'top:-20px',
+        `width:${size}px`,
+        `height:${size}px`,
+        `background:${colors[i % colors.length]}`,
+        `border-radius:${Math.random() > 0.4 ? '50%' : '3px'}`,
+        'pointer-events:none',
+        'z-index:10000',
+        `animation:confetti-fall ${1.2 + Math.random() * 1.4}s ease-in ${Math.random() * 0.35}s forwards`,
+        `--end-rot:${Math.random() * 720 - 360}deg`,
+      ].join(';');
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    });
   }, []);
+
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      // Command palette
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setPaletteOpen(p => !p);
+        return;
+      }
+      if (e.key === 'Escape') { setPaletteOpen(false); return; }
+
+      // Konami
+      if (e.key === KONAMI[konamiIdx.current]) {
+        konamiIdx.current += 1;
+        if (konamiIdx.current === KONAMI.length) {
+          konamiIdx.current = 0;
+          fireConfetti();
+          setToast('🎮 Achievement Unlocked: Konami Code');
+          setTimeout(() => setToast(null), 4000);
+        }
+      } else {
+        konamiIdx.current = e.key === KONAMI[0] ? 1 : 0;
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [fireConfetti]);
+
+  // ── Cursor sparkle (neon mode only) ──────────────────────────────────────
+  React.useEffect(() => {
+    if (effect !== 'neon') return;
+    let last = 0;
+    const onMove = (e: MouseEvent) => {
+      const now = Date.now();
+      if (now - last < 40 || !appRef.current) return;
+      last = now;
+      const accent = getComputedStyle(appRef.current).getPropertyValue('--accent').trim() || '#007acc';
+      const size = 3 + Math.random() * 5;
+      const el = document.createElement('div');
+      el.style.cssText = [
+        'position:fixed',
+        `left:${e.clientX}px`,
+        `top:${e.clientY}px`,
+        `width:${size}px`,
+        `height:${size}px`,
+        'border-radius:50%',
+        `background:${accent}`,
+        'pointer-events:none',
+        'z-index:9999',
+        'transform:translate(-50%,-50%)',
+        'transition:opacity 0.5s,transform 0.5s',
+        'opacity:0.85',
+      ].join(';');
+      document.body.appendChild(el);
+      requestAnimationFrame(() => {
+        el.style.opacity = '0';
+        el.style.transform = `translate(-50%,${-18 - Math.random() * 18}px) scale(0.1)`;
+      });
+      setTimeout(() => el.remove(), 600);
+    };
+    window.addEventListener('mousemove', onMove);
+    return () => window.removeEventListener('mousemove', onMove);
+  }, [effect]);
 
   const handleCreateTab = async (page: Page) => {
     const foundTab = tabs.find(tab => tab.title === page.title);
@@ -183,6 +281,15 @@ const App: React.FC = () => {
       </div>
 
       <BottomBar handleCreateTab={handleCreateTab} />
+
+      <CommandPalette
+        open={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        onNavigate={handleCreateTab}
+        onOpenBlog={handleCreateBlog}
+      />
+
+      {toast && <div className="achievement-toast">{toast}</div>}
 
       {/* ✅ Mobile Drawer */}
       {/* {isMobile && (

@@ -70,23 +70,57 @@
     flex: 0 0 auto;
 }
 
+.about-role {
+    font-size: 0.82rem;
+    margin-bottom: 14px;
+    min-height: 1.4em;
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.role-text {
+    color: var(--accent, #61dafb);
+    opacity: 0.9;
+}
+
+.role-cursor {
+    color: var(--accent, #61dafb);
+    animation: cursor-blink 1s step-end infinite;
+    opacity: 0.85;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes headshot-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(63, 169, 255, 0.08), 0 0 24px rgba(97, 218, 251, 0.10);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(63, 169, 255, 0.16), 0 0 38px rgba(97, 218, 251, 0.30);
+    }
+}
+
 .about-headshot {
     width: 148px;
     height: 148px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid rgba(97, 218, 251, 0.45);
-    box-shadow:
-        0 0 0 5px rgba(63, 169, 255, 0.08),
-        0 0 28px rgba(97, 218, 251, 0.12);
-    transition: box-shadow 0.4s ease;
+    animation: headshot-pulse 3.5s ease-in-out infinite;
+    transition: transform 0.3s ease;
     display: block;
 }
 
 .about-headshot:hover {
+    transform: scale(1.04);
+    animation-play-state: paused;
     box-shadow:
-        0 0 0 5px rgba(63, 169, 255, 0.18),
-        0 0 36px rgba(97, 218, 251, 0.45);
+        0 0 0 6px rgba(63, 169, 255, 0.22),
+        0 0 42px rgba(97, 218, 251, 0.50);
 }
 
 .contact-icons {

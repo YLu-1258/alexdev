@@ -3,9 +3,8 @@
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
     padding: 20px;
-    font-family: 'Fira Code', monospace;
-    color: #dcdcdc;
-    background-color: #1e1e1e;
+    color: var(--text-soft);
+    background-color: var(--bg-content);
     border-radius: 8px;
     max-width: 1200px;
     margin: auto;
@@ -19,14 +18,14 @@
 .page-title {
     text-align: center;
     font-size: 2rem;
-    color: #61dafb;
+    color: var(--accent);
     margin-bottom: 0.6rem;
 }
 
 .page-blurb {
     text-align: center;
     margin: 0 0 1.35rem;
-    color: #9aa0a6;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -37,13 +36,13 @@
     min-height: 500px;
 }
 
-/* Skills Cloud / Grid Section */
+/* ── Skills Cloud ── */
 .skills-cloud {
-    background: #252526;
+    background: var(--bg-surface);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    border-left: 3px solid #61dafb;
+    border-left: 3px solid var(--accent);
     overflow-y: auto;
 }
 
@@ -54,12 +53,11 @@
 }
 
 .skill-cloud-tag {
-    background: #1e1e1e;
-    border: 1px solid rgba(97, 218, 251, 0.3);
-    color: #61dafb;
+    background: var(--bg-content);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    color: var(--accent);
     padding: 10px 12px;
     border-radius: 6px;
-    font-family: 'Fira Code', monospace;
     font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -73,17 +71,17 @@
 }
 
 .skill-cloud-tag:hover {
-    background: rgba(97, 218, 251, 0.15);
-    border-color: rgba(97, 218, 251, 0.6);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 60%, transparent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(97, 218, 251, 0.2);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .skill-cloud-tag.active {
-    background: #61dafb;
-    color: #1e1e1e;
-    border-color: #61dafb;
-    box-shadow: 0 0 16px rgba(97, 218, 251, 0.4);
+    background: var(--accent);
+    color: var(--bg-root);
+    border-color: var(--accent);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 .skill-count {
@@ -91,9 +89,9 @@
     opacity: 0.8;
 }
 
-/* Citations Panel */
+/* ── Citations Panel ── */
 .citations-panel {
-    background: #252526;
+    background: var(--bg-surface);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -108,7 +106,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: #888;
+    color: var(--text-muted);
     text-align: center;
     font-size: 0.95rem;
 }
@@ -136,7 +134,7 @@
 .close-btn {
     background: transparent;
     border: none;
-    color: #888;
+    color: var(--text-muted);
     font-size: 1.5rem;
     cursor: pointer;
     transition: color 0.2s;
@@ -159,10 +157,10 @@
 }
 
 .citation-item {
-    background: #1e1e1e;
+    background: var(--bg-content);
     border-radius: 6px;
     padding: 12px;
-    border-left: 3px solid #4fc3f7;
+    border-left: 3px solid var(--accent);
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
@@ -170,14 +168,14 @@
 }
 
 .citation-item:hover {
-    background: rgba(97, 218, 251, 0.1);
+    background: color-mix(in srgb, var(--accent) 8%, var(--bg-content));
     transform: translateX(4px);
 }
 
 .citation-badge {
     font-size: 0.65rem;
-    color: #1e1e1e;
-    background: #4fc3f7;
+    color: var(--bg-root);
+    background: var(--accent);
     padding: 3px 8px;
     border-radius: 3px;
     font-weight: bold;
@@ -189,13 +187,13 @@
 
 .citation-name {
     margin: 0;
-    color: #b0b0b0;
+    color: var(--text-soft);
     font-size: 0.85rem;
     line-height: 1.4;
     flex: 1;
 }
 
-/* Scrollbar styling */
+/* ── Scrollbars ── */
 .skills-cloud::-webkit-scrollbar,
 .citations-panel::-webkit-scrollbar {
     width: 8px;
@@ -203,22 +201,22 @@
 
 .skills-cloud::-webkit-scrollbar-track,
 .citations-panel::-webkit-scrollbar-track {
-    background: rgba(97, 218, 251, 0.05);
+    background: var(--scroll-track);
     border-radius: 4px;
 }
 
 .skills-cloud::-webkit-scrollbar-thumb,
 .citations-panel::-webkit-scrollbar-thumb {
-    background: rgba(97, 218, 251, 0.3);
+    background: var(--scroll-thumb);
     border-radius: 4px;
 }
 
 .skills-cloud::-webkit-scrollbar-thumb:hover,
 .citations-panel::-webkit-scrollbar-thumb:hover {
-    background: rgba(97, 218, 251, 0.5);
+    background: var(--scroll-thumb-hover);
 }
 
-/* Responsive Design */
+/* ── Responsive ── */
 @media (max-width: 900px) {
     .skills-main-grid {
         grid-template-columns: 1fr;

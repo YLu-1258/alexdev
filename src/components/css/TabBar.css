@@ -27,10 +27,25 @@
   max-width: 340px;
   user-select: none;
   cursor: pointer;
+  position: relative;
 
   background: #252526;
   color: rgba(255, 255, 255, 0.82);
   border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent, #61dafb);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
 .tab:hover {
@@ -40,7 +55,10 @@
 .tab.active {
   background: #1e1e1e;
   color: #ffffff;
-  border-bottom: 2px solid #61dafb;
+}
+
+.tab.active::after {
+  transform: scaleX(1);
 }
 
 .tab-icon {

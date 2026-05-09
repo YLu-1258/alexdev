@@ -1,9 +1,9 @@
 import React from 'react';
 import './css/Header.css';
 
-type ThemeMode = 'dark' | 'light' | 'ocean' | 'sunset';
-type FontMode = 'fira' | 'serif' | 'rounded';
-type EffectMode = 'none' | 'glow' | 'grain';
+type ThemeMode = 'dark' | 'light' | 'ocean' | 'sunset' | 'forest' | 'nord' | 'midnight' | 'rose';
+type FontMode = 'fira' | 'serif' | 'rounded' | 'system' | 'mono';
+type EffectMode = 'none' | 'glow' | 'grain' | 'scanlines' | 'blur' | 'neon';
 
 interface HeaderProps {
     theme: ThemeMode;
@@ -33,14 +33,20 @@ const Header: React.FC<HeaderProps> = ({
                         <option value="light">Light</option>
                         <option value="ocean">Ocean</option>
                         <option value="sunset">Sunset</option>
+                        <option value="forest">Forest</option>
+                        <option value="nord">Nord</option>
+                        <option value="midnight">Midnight</option>
+                        <option value="rose">Rose</option>
                     </select>
                 </label>
                 <label className="theme-control-item">
                     <span>Font</span>
                     <select value={font} onChange={(e) => onFontChange(e.target.value as FontMode)}>
                         <option value="fira">Fira Code</option>
+                        <option value="mono">Monospace</option>
                         <option value="serif">Serif</option>
                         <option value="rounded">Rounded</option>
+                        <option value="system">System</option>
                     </select>
                 </label>
                 <label className="theme-control-item">
@@ -49,6 +55,9 @@ const Header: React.FC<HeaderProps> = ({
                         <option value="none">None</option>
                         <option value="glow">Glow</option>
                         <option value="grain">Grain</option>
+                        <option value="scanlines">Scanlines</option>
+                        <option value="blur">Blur</option>
+                        <option value="neon">Neon</option>
                     </select>
                 </label>
             </div>

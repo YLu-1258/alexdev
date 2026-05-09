@@ -49,8 +49,8 @@
     width: 2px;
     background: linear-gradient(
         to bottom,
-        #4fc3f7 0%,
-        rgba(79, 195, 247, 0.3) 60%,
+        var(--accent, #4fc3f7) 0%,
+        color-mix(in srgb, var(--accent, #4fc3f7) 30%, transparent) 60%,
         transparent 100%
     );
 }
@@ -71,16 +71,16 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #1e1e1e;
-    border: 2px solid #4fc3f7;
+    background: var(--bg-content, #1e1e1e);
+    border: 2px solid var(--accent, #4fc3f7);
     transform: translateX(-50%);
     transition: background 0.25s ease, box-shadow 0.25s ease;
     z-index: 1;
 }
 
 .timeline-item:hover .timeline-dot {
-    background: #4fc3f7;
-    box-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+    background: var(--accent, #4fc3f7);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--accent, #4fc3f7) 60%, transparent);
 }
 
 /* Card */
@@ -98,7 +98,7 @@
 .experience-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
-    border-left-color: #4fc3f7;
+    border-left-color: var(--accent, #4fc3f7);
 }
 
 .card-left {
@@ -126,7 +126,7 @@
 
 .experience-title {
     font-size: 1rem;
-    color: #4fc3f7;
+    color: var(--accent, #4fc3f7);
     font-weight: bold;
     margin: 0 0 2px 0;
 }
@@ -167,9 +167,9 @@
 
 .experience-skill-tag {
     font-size: 0.65rem;
-    color: #61dafb;
-    background: rgba(97, 218, 251, 0.1);
-    border: 1px solid rgba(97, 218, 251, 0.3);
+    color: var(--accent, #61dafb);
+    background: color-mix(in srgb, var(--accent, #61dafb) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent, #61dafb) 30%, transparent);
     border-radius: 3px;
     padding: 2px 6px;
     cursor: pointer;
@@ -177,14 +177,14 @@
 }
 
 .experience-skill-tag:hover {
-    background: rgba(97, 218, 251, 0.25);
-    border-color: rgba(97, 218, 251, 0.6);
+    background: color-mix(in srgb, var(--accent, #61dafb) 25%, transparent);
+    border-color: color-mix(in srgb, var(--accent, #61dafb) 60%, transparent);
     transform: scale(1.05);
 }
 
 .experience-description::before {
     content: '▸ ';
-    color: #4fc3f7;
+    color: var(--accent, #4fc3f7);
     opacity: 0.6;
 }
 

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -41,9 +42,24 @@ export default function BlogPostView({
   onOpenBlog: (slug: string) => void;
 }) {
   const body = preprocessShortcodes(post.body);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const scrollEl = wrapRef.current?.parentElement;
+    if (!scrollEl) return;
+    const onScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = scrollEl;
+      setProgress(scrollHeight <= clientHeight ? 0 : (scrollTop / (scrollHeight - clientHeight)) * 100);
+    };
+    scrollEl.addEventListener('scroll', onScroll, { passive: true });
+    return () => scrollEl.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <div className="blog-wrap">
+    <div className="blog-view-wrapper" ref={wrapRef}>
+      <div className="blog-progress-bar" style={{ width: `${progress}%` }} />
+      <div className="blog-wrap">
       <header className="blog-header">
         <div className="blog-kicker">Blog</div>
 
@@ -82,6 +98,7 @@ export default function BlogPostView({
           {body}
         </ReactMarkdown>
       </article>
+      </div>
     </div>
   );
 }
