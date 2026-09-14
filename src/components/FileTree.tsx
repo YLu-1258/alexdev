@@ -21,7 +21,6 @@ type TreeNode =
       type: "external";
       name: string;
       href: string;
-      download?: boolean;
     };
 
 
@@ -50,25 +49,29 @@ function insertPath(root: TreeNode[], parts: string[], slug: string) {
   }
 }
 
-const BlogFile = ({ node, onOpen }: any) => (
+const BlogFile: React.FC<{
+  node: Extract<TreeNode, { type: "blog" }>;
+  onOpen: (slug: string) => void;
+}> = ({ node, onOpen }) => (
   <div className="tree-item file" onClick={() => onOpen(node.slug)}>
     <FiFileText />
     <span>{node.name}</span>
   </div>
 );
 
-const ExternalFile = ({ node }: any) => (
+const ExternalFile: React.FC<{
+  node: Extract<TreeNode, { type: "external" }>;
+}> = ({ node }) => (
   <div className="tree-item file">
     <FiFileText />
     <a
       href={node.href}
-      target={node.download ? "_self" : "_blank"}
+      target="_blank"
       rel="noreferrer"
-      download={node.download}
     >
       {node.name}
     </a>
-    {!node.download && <FiExternalLink className="external" />}
+    <FiExternalLink className="external" />
   </div>
 );
 
@@ -113,7 +116,6 @@ const tree: TreeNode[] = [
         type: "external",
         name: "Resume.pdf",
         href: "/downloads/Alex_Lu_Resume.pdf",
-        download: true,
       },
       {
         type: "folder",
@@ -122,20 +124,17 @@ const tree: TreeNode[] = [
           {
             type: "external",
             name: "CS170 - Fall 2025",
-            href: "downloads/Class Notes/CS170.pdf",
-            download: true,
+            href: "/downloads/Class Notes/CS170.pdf",
           },
           {
             type: "external",
             name: "MATH110 - Fall 2025",
-            href: "downloads/Class Notes/MATH110.pdf",
-            download: true,
+            href: "/downloads/Class Notes/MATH110.pdf",
           },
           {
             type: "external",
             name: "EECS126 - Fall 2025",
-            href: "downloads/Class Notes/Stochastic Processes.pdf",
-            download: true,
+            href: "/downloads/Class Notes/Stochastic Processes.pdf",
           }
         ]
       }
