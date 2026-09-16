@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import '../css/About.css';
 
 const ROLES = [
@@ -54,7 +54,11 @@ const About: React.FC = () => {
         <div className={`about-container ${isVisible ? "visible" : ""}`}>
             <div className="about-hero">
                 <div className="about-hero-text">
-                    <span className="about-comment">// about.tsx</span>
+                    <div className="about-kicker">
+                        <span>00</span>
+                        <span>ML research / software engineering</span>
+                        <span>Berkeley, California</span>
+                    </div>
                     <h1 className="about-title">{aboutContent.title}</h1>
                     <div className="about-role">
                         <span className="role-text">{displayed}</span>
@@ -62,12 +66,21 @@ const About: React.FC = () => {
                     </div>
                     <p className="about-description">{aboutContent.description}</p>
                     <p className="about-extras">{aboutContent.extras}</p>
+                    <div className="about-actions">
+                        <a className="about-primary-action" href="/downloads/Alex_Lu_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                            View résumé <span aria-hidden="true">↗</span>
+                        </a>
+                        <a className="about-secondary-action" href="mailto:alexander.lu@berkeley.edu">
+                            Get in touch
+                        </a>
+                    </div>
                     <div className="contact-icons">
                         <a
                             href="https://github.com/YLu-1258"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon github"
+                            aria-label="GitHub"
                         >
                             <FaGithub />
                         </a>
@@ -76,22 +89,16 @@ const About: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon linkedin"
+                            aria-label="LinkedIn"
                         >
                             <FaLinkedin />
-                        </a>
-                        <a
-                            href="https://twitter.com/your-profile"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="contact-icon twitter"
-                        >
-                            <FaTwitter />
                         </a>
                         <a
                             href="mailto:alexander.lu@berkeley.edu"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon email"
+                            aria-label="Email"
                         >
                             <FaEnvelope />
                         </a>

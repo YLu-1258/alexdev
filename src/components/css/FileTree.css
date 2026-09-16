@@ -99,3 +99,51 @@
 .file-tree > .tree-node > .tree-item::before {
   display: none;
 }
+
+/* Quiet project explorer */
+.file-tree {
+  min-height: 100%;
+  padding: 16px 10px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  border-right: 1px solid var(--card-border);
+}
+
+.file-tree::before {
+  content: 'EXPLORER';
+  display: block;
+  margin: 0 7px 14px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+}
+
+.tree-item {
+  min-height: 30px;
+  gap: 8px;
+  padding: 4px 7px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.tree-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+  opacity: 0.62;
+}
+
+.folder {
+  color: var(--text-main) !important;
+  font-weight: 500;
+}
+
+.tree-children {
+  margin-left: 11px;
+  padding-left: 10px;
+}
+
+.external {
+  color: var(--text-muted) !important;
+}

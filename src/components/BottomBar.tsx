@@ -30,14 +30,14 @@ const iconFor: Record<PageType, IconType> = {
 };
 
 const BottomBar: React.FC<BottomBarProps> = ({ handleCreateTab }) => {
-  const pages: { title: string; type: PageType; color: string; element: React.ReactNode }[] = [
-    { title: "About", type: "about", color: "#e06c75", element: <About /> },
-    { title: "Experience", type: "experience", color: "#de9a4b", element: <Experiences /> },
-    { title: "Research", type: "research", color: "#f0db54", element: <Research /> },
-    { title: "Projects", type: "projects", color: "#98c379", element: <Projects /> },
-    { title: "Skills", type: "skills", color: "#61afef", element: <Skills /> },
-    { title: "Courses", type: "courses", color: "#c678dd", element: <Courses /> },
-    { title: "Awards", type: "awards", color: "#762d8d", element: <Awards /> },
+  const pages: { title: string; type: PageType; element: React.ReactNode }[] = [
+    { title: "About", type: "about", element: <About /> },
+    { title: "Experience", type: "experience", element: <Experiences /> },
+    { title: "Research", type: "research", element: <Research /> },
+    { title: "Projects", type: "projects", element: <Projects /> },
+    { title: "Skills", type: "skills", element: <Skills /> },
+    { title: "Courses", type: "courses", element: <Courses /> },
+    { title: "Awards", type: "awards", element: <Awards /> },
   ];
 
   const createPage = (p: (typeof pages)[number]): Page => ({
@@ -64,7 +64,6 @@ const BottomBar: React.FC<BottomBarProps> = ({ handleCreateTab }) => {
           <ResponsiveButton
             key={i}
             label={p.title}
-            color={p.color}
             Icon={iconFor[p.type]}
             onClick={() => handleCreateTab(createPage(p))}
           />
@@ -80,10 +79,9 @@ const BottomBar: React.FC<BottomBarProps> = ({ handleCreateTab }) => {
 
 const ResponsiveButton: React.FC<{
   label: string;
-  color: string;
   Icon: IconType;
   onClick: () => void;
-}> = ({ label, color, Icon, onClick }) => {
+}> = ({ label, Icon, onClick }) => {
   const buttonRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const [showLabel, setShowLabel] = useState(true);
@@ -103,7 +101,7 @@ const ResponsiveButton: React.FC<{
   }, [updateLabelVisibility]);
 
   return (
-    <div className="button" ref={buttonRef} style={{ backgroundColor: color }} onClick={onClick}>
+    <div className="button" ref={buttonRef} data-section={label.toLowerCase()} onClick={onClick}>
         <Icon className="bottom-icon" />
         <span className="label" ref={labelRef} style={{ display: showLabel ? "inline" : "none" }}>
         {label}

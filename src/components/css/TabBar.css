@@ -90,3 +90,47 @@
   opacity: 1;
   background: rgba(255, 255, 255, 0.12);
 }
+
+/* Editorial IDE tabs */
+.tab-bar {
+  min-height: 42px;
+  background: var(--bg-root);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.tab-scroll {
+  gap: 0;
+}
+
+.tab {
+  min-width: 136px;
+  padding: 0 13px;
+  min-height: 42px;
+  background: transparent;
+  color: var(--text-muted);
+  border-right: 1px solid var(--card-border);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+}
+
+.tab::after {
+  height: 1px;
+  top: 0;
+  bottom: auto;
+}
+
+.tab.active {
+  background: var(--bg-content);
+  color: var(--text-main);
+}
+
+.tab-icon {
+  color: var(--accent);
+  opacity: 0.68;
+}
+
+.close-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+}

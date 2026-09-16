@@ -1,6 +1,6 @@
 {
     "picture": "img/headshot.jpeg",
-    "title": "Hi, I am Alexander Lu",
+    "title": "Alexander Lu",
     "description": "EECS undergrad at UC Berkeley (4.00 GPA) with a Mathematics minor. SWE intern at Apple and Amazon, and an ACL 2026 publication from ML research at BAIR and UCSF. I build and ship systems at scale: 300K+ TPM traffic infrastructure, 95%-accuracy seizure detection, and RL pipelines fine-tuning 9 reasoning models.",
     "extras": "Beyond research, I enjoy building local-first tools, contributing to open source, and writing about AI systems on my blog."
 }

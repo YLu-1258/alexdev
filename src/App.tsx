@@ -27,7 +27,6 @@ type FontMode = 'fira' | 'serif' | 'rounded' | 'system' | 'mono';
 type EffectMode = 'none' | 'glow' | 'grain' | 'scanlines' | 'blur' | 'neon';
 
 const THEME_OPTIONS: ThemeMode[] = ['dark', 'light', 'ocean', 'sunset', 'forest', 'nord', 'midnight', 'rose'];
-const DARK_THEMES: ThemeMode[] = ['dark', 'ocean', 'sunset', 'forest', 'nord', 'midnight', 'rose'];
 const FONT_OPTIONS: FontMode[] = ['fira', 'serif', 'rounded', 'system', 'mono'];
 const EFFECT_OPTIONS: EffectMode[] = ['none', 'glow', 'grain', 'scanlines', 'blur', 'neon'];
 
@@ -41,7 +40,7 @@ const getInitialTheme = (): ThemeMode => {
   if (typeof window === 'undefined') return 'dark';
   const stored = window.localStorage.getItem(THEME_KEY) as ThemeMode | null;
   if (stored && THEME_OPTIONS.includes(stored)) return stored;
-  return DARK_THEMES[Math.floor(Math.random() * DARK_THEMES.length)];
+  return 'dark';
 };
 
 const App: React.FC = () => {
@@ -49,7 +48,7 @@ const App: React.FC = () => {
   const appRef = useRef<HTMLDivElement>(null);
 
   const [isResizing, setIsResizing] = useState(false);
-  const [sidebarWidth, setSidebarWidth] = useState(260);
+  const [sidebarWidth, setSidebarWidth] = useState(236);
 
   const [tabs, setTabs] = useState<Tab[]>([
     { id: "0", title: 'About', type: 'about', content: <About /> },

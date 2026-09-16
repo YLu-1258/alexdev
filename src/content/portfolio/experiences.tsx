@@ -31,7 +31,7 @@ const Experiences: React.FC = () => {
     return (
         <div className={`experiences-container ${isVisible ? "visible" : ""}`}>
             <h1 className="page-title">Experience</h1>
-            <p className="page-blurb">Where ideas met deadlines and somehow both survived.</p>
+            <p className="page-blurb">Applied AI, infrastructure, and machine learning research.</p>
             <div className="experiences-grid">
                 {experiences.experiences.map((experience, index) => (
                     <div

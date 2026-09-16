@@ -180,7 +180,7 @@ const Skills: React.FC = () => {
     return (
         <div className={`skills-page-container ${isVisible ? 'visible' : ''}`}>
             <h1 className="page-title">Skills</h1>
-            <p className="page-blurb">Collected through equal parts curiosity, caffeine, and compiler errors.</p>
+            <p className="page-blurb">Select a skill to see where it appears across my work.</p>
 
             <div className="skills-main-grid">
                 {/* Skills cloud on the left */}

@@ -182,3 +182,204 @@
         font-size: 1.5rem;
     }
 }
+
+/* Editorial IDE hero */
+.about-container {
+    padding: clamp(34px, 6vw, 74px);
+    background: var(--bg-content);
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 1080px;
+    min-height: min(650px, calc(100vh - 190px));
+    margin: auto;
+    display: flex;
+    align-items: center;
+    animation: none;
+}
+
+.about-hero {
+    width: 100%;
+    gap: clamp(40px, 7vw, 92px);
+}
+
+.about-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.about-kicker span:first-child {
+    color: var(--accent);
+}
+
+.about-kicker span:nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.about-kicker span:nth-child(2)::after {
+    content: '';
+    width: 42px;
+    height: 1px;
+    background: var(--card-border);
+}
+
+.about-title {
+    max-width: 680px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: clamp(3.5rem, 8vw, 7.25rem);
+    color: var(--text-main);
+    margin: 0 0 24px;
+    line-height: 0.88;
+    letter-spacing: -0.07em;
+    font-weight: 700;
+}
+
+.about-role {
+    font-size: 0.75rem;
+    margin-bottom: 22px;
+}
+
+.about-description {
+    max-width: 720px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: var(--text-soft);
+    margin: 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--card-border);
+}
+
+.about-extras {
+    max-width: 660px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin: 14px 0 0;
+}
+
+.about-hero-photo {
+    position: relative;
+}
+
+.about-headshot {
+    width: clamp(170px, 20vw, 250px);
+    height: clamp(220px, 28vw, 330px);
+    border-radius: 2px;
+    border: 1px solid var(--card-border);
+    filter: grayscale(1) contrast(1.04);
+    animation: none;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-headshot:hover {
+    transform: translateY(-3px);
+    filter: grayscale(0.25) contrast(1.02);
+    box-shadow: 10px 10px 0 color-mix(in srgb, var(--accent) 13%, transparent);
+}
+
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.about-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 18px;
+    border-radius: 999px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.about-primary-action {
+    background: var(--accent);
+    color: #0a0b09;
+}
+
+.about-secondary-action {
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+}
+
+.about-actions a:hover {
+    transform: translateY(-2px);
+}
+
+.about-secondary-action:hover {
+    border-color: var(--accent);
+}
+
+.contact-icons {
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.contact-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+    padding: 0;
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    color: var(--text-muted);
+    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-icon:hover,
+.contact-icon.github:hover,
+.contact-icon.linkedin:hover,
+.contact-icon.email:hover {
+    background: transparent;
+    border-color: var(--accent);
+    color: var(--text-main);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+    .about-container {
+        padding: 30px 18px 44px;
+        min-height: auto;
+    }
+
+    .about-hero {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+    }
+
+    .about-headshot {
+        width: 100%;
+        height: 220px;
+    }
+
+    .about-title {
+        font-size: clamp(3rem, 16vw, 4.5rem);
+    }
+
+    .about-kicker {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+    }
+
+    .about-kicker span:last-child,
+    .about-kicker span:nth-child(2)::after {
+        display: none;
+    }
+}

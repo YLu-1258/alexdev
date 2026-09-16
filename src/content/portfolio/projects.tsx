@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
     return (
         <div className={`projects-container ${isVisible ? "visible" : ""}`}>
             <h1 className="page-title">Projects</h1>
-            <p className="page-blurb">Built for fun, utility, and occasional controlled chaos.</p>
+            <p className="page-blurb">Selected systems, tools, and experiments.</p>
             <div className="projects-grid">
                 {projects.projects.map((project, index) => (
                     <div

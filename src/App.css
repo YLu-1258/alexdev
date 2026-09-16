@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 .app {
-  --header-height: 42px;
-  --bottom-height: 33px;
-  --bg-root: #1a1a1a;
-  --bg-panel: #252526;
-  --bg-content: #1e1e1e;
-  --bg-surface: #252526;
-  --bg-surface-soft: #1f1f1f;
-  --bg-elevated: #2a2a2a;
-  --text-main: #ffffff;
-  --text-muted: #aaaaaa;
-  --text-soft: #c8c8c8;
-  --accent: #007acc;
-  --hover-surface: #333333;
-  --card-border: rgba(255, 255, 255, 0.08);
-  --container-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-  --container-border: transparent;
-  --scroll-track: #1e1e1e;
-  --scroll-thumb: #4e4e4e;
-  --scroll-thumb-hover: #666666;
+  --header-height: 52px;
+  --bottom-height: 38px;
+  --bg-root: #090a08;
+  --bg-panel: #0d0f0c;
+  --bg-content: #0a0b09;
+  --bg-surface: #11130f;
+  --bg-surface-soft: #0d0f0c;
+  --bg-elevated: #171a14;
+  --text-main: #f1f3ec;
+  --text-muted: #777c70;
+  --text-soft: #b8bdb2;
+  --accent: #b7f34a;
+  --hover-surface: #171a14;
+  --card-border: rgba(220, 229, 210, 0.12);
+  --container-shadow: none;
+  --container-border: rgba(220, 229, 210, 0.1);
+  --scroll-track: #0a0b09;
+  --scroll-thumb: #34382f;
+  --scroll-thumb-hover: #555d4a;
   --header-grad-start: #0057a8;
   --header-grad-mid: #007acc;
   --header-grad-end: #0099cc;
@@ -829,4 +829,280 @@ body, html {
 @keyframes toast-pop {
   from { opacity: 0; transform: translateX(-50%) translateY(14px) scale(0.94); }
   to   { opacity: 1; transform: translateX(-50%) translateY(0)    scale(1); }
+}
+
+/* ── Editorial IDE system ─────────────────────────────────────────────── */
+.app {
+  background:
+    radial-gradient(circle at 72% 15%, color-mix(in srgb, var(--accent) 4%, transparent), transparent 28%),
+    var(--bg-root);
+}
+
+.main-layout {
+  border-bottom: 0;
+}
+
+.app-sidebar {
+  min-width: 190px;
+  max-width: 380px;
+  border-right: 0;
+}
+
+.app-sidebar .app-sidebar-resizer {
+  flex-basis: 1px;
+  width: 5px;
+  background: var(--card-border);
+  transition: background 0.18s ease;
+}
+
+.app-sidebar .app-sidebar-resizer:hover {
+  background: var(--accent);
+}
+
+.app .content {
+  padding: 0;
+  background:
+    linear-gradient(var(--card-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--card-border) 1px, transparent 1px),
+    var(--bg-content) !important;
+  background-size: 52px 52px, 52px 52px, auto !important;
+  background-position: -1px -1px !important;
+}
+
+.app .about-container,
+.app .experiences-container,
+.app .research-container,
+.app .projects-container,
+.app .skills-page-container,
+.app .courses-page-container,
+.app .awards-container,
+.app .blog-wrap {
+  width: min(100%, 1080px);
+  min-height: calc(100% - 48px);
+  margin: 24px auto;
+  padding: clamp(30px, 5vw, 64px);
+  box-sizing: border-box;
+  background: color-mix(in srgb, var(--bg-content) 96%, transparent) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.app .about-container {
+  margin-block: 0;
+  min-height: 100%;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.app[data-font] .about-title,
+.app[data-font] .page-title,
+.app[data-font] .experience-title,
+.app[data-font] .project-title,
+.app[data-font] .pub-title,
+.app[data-font] .award-title,
+.app[data-font] .semester-header h2,
+.app[data-font] .course-title,
+.app[data-font] .blog-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;
+}
+
+.app .page-title {
+  position: relative;
+  margin: 0;
+  padding-top: 28px;
+  text-align: left;
+  color: var(--text-main) !important;
+  font-size: clamp(2.45rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 700;
+}
+
+.app .page-title::before {
+  content: '01';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--accent);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.app .research-container .page-title::before { content: '02'; }
+.app .projects-container .page-title::before { content: '03'; }
+.app .skills-page-container .page-title::before { content: '04'; }
+.app .courses-page-container .page-title::before { content: '05'; }
+.app .awards-container .page-title::before { content: '06'; }
+
+.app .page-blurb,
+.app .courses-intro {
+  max-width: 680px;
+  margin: 12px 0 34px;
+  text-align: left;
+  color: var(--text-muted) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.app .courses-intro {
+  margin-top: -24px;
+}
+
+.app .experience-card,
+.app .project-card,
+.app .pub-card,
+.app .award-card,
+.app .semester-card,
+.app .course-card,
+.app .skills-cloud,
+.app .citations-panel,
+.app .citation-item {
+  background: color-mix(in srgb, var(--bg-surface) 88%, transparent) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+}
+
+.app .experience-card,
+.app .project-card,
+.app .pub-card,
+.app .award-card,
+.app .semester-card {
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.app .experience-card:hover,
+.app .project-card:hover,
+.app .pub-card:hover,
+.app .award-card:hover,
+.app .semester-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--card-border)) !important;
+  box-shadow: none !important;
+}
+
+.app .experience-title,
+.app .project-title,
+.app .award-title,
+.app .pub-title,
+.app .semester-header h2 {
+  color: var(--text-main) !important;
+}
+
+.app .experience-position,
+.app .course-title,
+.app .pub-title-link {
+  color: var(--text-main) !important;
+}
+
+.app .experience-image,
+.app .project-image,
+.app .award-image {
+  filter: grayscale(0.8) contrast(1.02);
+  transition: filter 0.2s ease;
+}
+
+.app .experience-card:hover .experience-image,
+.app .project-card:hover .project-image,
+.app .award-card:hover .award-image {
+  filter: grayscale(0.15);
+}
+
+.app .experience-skill-tag,
+.app .project-skill-tag,
+.app .pub-tag,
+.app .course-skill-tag,
+.app .pub-status,
+.app .course-grade {
+  color: var(--text-muted) !important;
+  background: transparent !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 999px !important;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+}
+
+.app .pub-venue,
+.app .citation-badge {
+  background: var(--accent) !important;
+  color: #090a08 !important;
+  border-radius: 999px !important;
+  animation: none !important;
+}
+
+.app .timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-width: 1px;
+  box-shadow: 0 0 0 4px var(--bg-content);
+}
+
+.app .experiences-grid::before {
+  width: 1px;
+  background: var(--card-border);
+}
+
+.app .projects-grid {
+  gap: 14px;
+}
+
+.app .skills-main-grid {
+  gap: 14px;
+}
+
+.app .skill-cloud-tag {
+  border-radius: 3px;
+  background: var(--bg-content);
+  color: var(--text-soft);
+}
+
+.app .skill-cloud-tag.active {
+  background: var(--accent);
+  color: #090a08;
+  box-shadow: none;
+}
+
+.app .palette-overlay {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.app a:focus-visible,
+.app button:focus-visible,
+.app select:focus-visible,
+.app [role='button']:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .app .about-container,
+  .app .experiences-container,
+  .app .research-container,
+  .app .projects-container,
+  .app .skills-page-container,
+  .app .courses-page-container,
+  .app .awards-container,
+  .app .blog-wrap {
+    width: 100%;
+    margin: 0;
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app *,
+  .app *::before,
+  .app *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

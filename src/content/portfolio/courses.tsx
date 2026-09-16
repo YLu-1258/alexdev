@@ -35,8 +35,8 @@ const Courses: React.FC = () => {
     return (
         <div className={`courses-page-container ${isVisible ? 'visible' : ''}`}>
             <h1 className="page-title">Courses</h1>
-            <p className="page-blurb">Turns out office hours and group chats are both educational technologies.</p>
-            <p className="courses-intro">Grades and the skills each class helped build.</p>
+            <p className="page-blurb">Selected technical coursework at UC Berkeley.</p>
+            <p className="courses-intro">Coursework and the skills each class helped build.</p>
 
             <div className="courses-semesters">
                 {data.courses.map((semester) => (

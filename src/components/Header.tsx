@@ -24,7 +24,11 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
     return (
         <div className="header">
-            <div className="header-title">Alexander Lu</div>
+            <div className="header-brand">
+                <span className="header-signal" aria-hidden="true" />
+                <span className="header-title">Alexander Lu</span>
+                <span className="header-path">~/portfolio</span>
+            </div>
             <div className="theme-controls" aria-label="Theme controls">
                 <label className="theme-control-item">
                     <span>Theme</span>
