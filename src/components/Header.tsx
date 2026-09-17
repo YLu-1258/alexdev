@@ -1,11 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FiCheck, FiChevronDown } from 'react-icons/fi';
+import { FiCheck, FiChevronDown, FiDroplet, FiType, FiZap } from 'react-icons/fi';
 import './css/Header.css';
 
 type ThemeMode = 'dark' | 'light' | 'ocean' | 'sunset' | 'forest' | 'nord' | 'midnight' | 'rose';
 type FontMode = 'fira' | 'serif' | 'rounded' | 'system' | 'mono';
 type EffectMode = 'none' | 'glow' | 'grain' | 'scanlines' | 'blur' | 'neon';
 type ControlKey = 'theme' | 'font' | 'effect';
+
+const CONTROL_ICONS = {
+    theme: FiDroplet,
+    font: FiType,
+    effect: FiZap,
+};
 
 interface Choice {
     value: string;
@@ -87,6 +93,7 @@ const Header: React.FC<HeaderProps> = ({
     ) => {
         const isOpen = openControl === key;
         const selected = choices.find(choice => choice.value === value) ?? choices[0];
+        const ControlIcon = CONTROL_ICONS[key];
 
         return (
             <div className={`control-menu ${isOpen ? 'open' : ''}`}>
@@ -95,10 +102,11 @@ const Header: React.FC<HeaderProps> = ({
                     type="button"
                     aria-haspopup="listbox"
                     aria-expanded={isOpen}
+                    aria-label={`${label}: ${selected.label}`}
+                    title={`${label}: ${selected.label}`}
                     onClick={() => setOpenControl(isOpen ? null : key)}
                 >
-                    <span className="control-label">{label}</span>
-                    <span className="control-value">{selected.label}</span>
+                    <ControlIcon className="control-icon" aria-hidden="true" />
                     <FiChevronDown className="control-chevron" aria-hidden="true" />
                 </button>
                 <div
@@ -107,7 +115,11 @@ const Header: React.FC<HeaderProps> = ({
                     aria-label={`${label} options`}
                     aria-hidden={!isOpen}
                 >
-                    {choices.map(choice => (
+                    <div className="control-dropdown-header">
+                        <span>{label}</span>
+                        <strong>{selected.label}</strong>
+                    </div>
+                    {choices.map((choice, index) => (
                         <button
                             key={choice.value}
                             className={`control-option ${choice.value === value ? 'selected' : ''}`}
@@ -115,6 +127,7 @@ const Header: React.FC<HeaderProps> = ({
                             role="option"
                             aria-selected={choice.value === value}
                             tabIndex={isOpen ? 0 : -1}
+                            style={{ '--option-index': index } as React.CSSProperties}
                             onClick={() => {
                                 onChange(choice.value);
                                 setOpenControl(null);

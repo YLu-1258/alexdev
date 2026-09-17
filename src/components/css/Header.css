@@ -53,7 +53,7 @@
 .theme-controls {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     flex-shrink: 0;
 }
 
@@ -84,14 +84,16 @@
 }
 
 .control-trigger {
-    min-height: 34px;
+    width: 38px;
+    height: 38px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 7px;
-    padding: 0 9px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    background: transparent;
+    padding: 0;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--bg-surface) 58%, transparent);
     color: var(--text-soft);
     font: inherit;
     cursor: pointer;
@@ -102,24 +104,25 @@
 .control-menu.open .control-trigger {
     color: var(--text-main);
     background: var(--bg-elevated);
-    border-color: var(--card-border);
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--card-border));
 }
 
-.control-label {
-    color: var(--text-muted);
-    font-size: 0.62rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+.control-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--text-soft);
+    transition: color 0.18s ease, transform 0.22s ease;
 }
 
-.control-value {
-    font-size: 0.74rem;
-    white-space: nowrap;
+.control-trigger:hover .control-icon,
+.control-menu.open .control-icon {
+    color: var(--accent);
+    transform: translateY(-1px);
 }
 
 .control-chevron {
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
     color: var(--text-muted);
     transition: transform 0.22s ease, color 0.18s ease;
 }
@@ -147,17 +150,45 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-7px) scale(0.98);
+    clip-path: inset(0 0 100% 0 round 8px);
+    transform: translateY(-8px) scale(0.98);
     transform-origin: top right;
-    transition: opacity 0.18s ease, transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.22s;
+    transition:
+        opacity 0.18s ease,
+        clip-path 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+        visibility 0s linear 0.28s;
 }
 
 .control-menu.open .control-dropdown {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    clip-path: inset(0 0 0 0 round 8px);
     transform: translateY(0) scale(1);
     transition-delay: 0s;
+}
+
+.control-dropdown-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 2px 4px 6px;
+    padding: 6px 7px 9px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.control-dropdown-header strong {
+    color: var(--text-soft);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
 }
 
 .control-option {
@@ -175,7 +206,15 @@
     font: inherit;
     text-align: left;
     cursor: pointer;
-    transition: color 0.14s ease, background 0.14s ease;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: color 0.14s ease, background 0.14s ease, opacity 0.16s ease, transform 0.2s ease;
+}
+
+.control-menu.open .control-option {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(70ms + var(--option-index, 0) * 18ms);
 }
 
 .control-option:hover,
@@ -247,8 +286,7 @@
         gap: 8px;
     }
 
-    .header-title,
-    .control-label {
+    .header-title {
         display: none;
     }
 
@@ -257,13 +295,8 @@
     }
 
     .control-trigger {
-        min-height: 32px;
-        gap: 4px;
-        padding-inline: 7px;
-    }
-
-    .control-value {
-        font-size: 0.68rem;
+        width: 34px;
+        height: 34px;
     }
 }
 

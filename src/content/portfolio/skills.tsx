@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Skills.css';
 import { allPosts } from '../../blog/render/loadPosts';
+import { FiArrowRight, FiSearch, FiX } from 'react-icons/fi';
 
 interface Experience {
     company: string;
@@ -45,6 +46,7 @@ interface SkillMap {
 const Skills: React.FC = () => {
     const [skillMap, setSkillMap] = useState<SkillMap>({});
     const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+    const [query, setQuery] = useState('');
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -177,39 +179,73 @@ const Skills: React.FC = () => {
         }
     };
 
+    const skillEntries = Object.entries(skillMap);
+    const visibleSkills = skillEntries.filter(([skill]) =>
+        skill.toLowerCase().includes(query.trim().toLowerCase())
+    );
+    const totalCitations = skillEntries.reduce((total, [, citations]) => total + citations.length, 0);
+    const popularSkills = [...skillEntries]
+        .sort(([, a], [, b]) => b.length - a.length)
+        .slice(0, 5);
+
     return (
         <div className={`skills-page-container ${isVisible ? 'visible' : ''}`}>
             <h1 className="page-title">Skills</h1>
             <p className="page-blurb">Select a skill to see where it appears across my work.</p>
 
+            <div className="skills-toolbar">
+                <div className="skills-summary" aria-label={`${skillEntries.length} skills across ${totalCitations} references`}>
+                    <span>Skill index</span>
+                    <strong>{skillEntries.length}</strong>
+                    <span className="summary-divider" aria-hidden="true" />
+                    <span>{totalCitations} references</span>
+                </div>
+                <label className="skills-search">
+                    <FiSearch aria-hidden="true" />
+                    <span className="sr-only">Filter skills</span>
+                    <input
+                        type="search"
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        placeholder="Filter skills..."
+                    />
+                </label>
+            </div>
+
             <div className="skills-main-grid">
-                {/* Skills cloud on the left */}
                 <div className="skills-cloud">
                     <div className="skills-grid">
-                        {Object.keys(skillMap).map((skill) => (
+                        {visibleSkills.map(([skill, citations]) => (
                             <button
                                 key={skill}
                                 className={`skill-cloud-tag ${selectedSkill === skill ? 'active' : ''}`}
                                 onClick={() => setSelectedSkill(selectedSkill === skill ? null : skill)}
+                                aria-pressed={selectedSkill === skill}
                             >
-                                {skill}
-                                <span className="skill-count">({skillMap[skill].length})</span>
+                                <span className="skill-name">{skill}</span>
+                                <span className="skill-count">{citations.length}</span>
                             </button>
                         ))}
                     </div>
+                    {visibleSkills.length === 0 && (
+                        <div className="skills-no-results">No skills match “{query}”.</div>
+                    )}
                 </div>
 
-                {/* Citations panel on the right */}
-                <div className="citations-panel">
+                <div className="citations-panel" aria-live="polite">
                     {selectedSkill ? (
                         <div className="citation-content">
                             <div className="citation-header">
-                                <h2>{selectedSkill}</h2>
+                                <div>
+                                    <span className="panel-eyebrow">Used in {skillMap[selectedSkill].length} places</span>
+                                    <h2>{selectedSkill}</h2>
+                                </div>
                                 <button
-                                    className="close-btn"
+                                    className="citation-close-btn"
                                     onClick={() => setSelectedSkill(null)}
+                                    aria-label="Clear selected skill"
                                 >
-                                    ✕
+                                    <FiX aria-hidden="true" />
                                 </button>
                             </div>
                             <div className="citations-list">
@@ -236,7 +272,20 @@ const Skills: React.FC = () => {
                         </div>
                     ) : (
                         <div className="empty-state">
-                            <p>Click on a skill to see where it's used</p>
+                            <div className="empty-state-mark" aria-hidden="true">↳</div>
+                            <span className="panel-eyebrow">Skill explorer</span>
+                            <h2>Trace a skill through the portfolio.</h2>
+                            <p>Choose any skill to see the projects, research, courses, and roles where I used it.</p>
+                            <div className="popular-skills">
+                                <span>Most connected</span>
+                                {popularSkills.map(([skill, citations]) => (
+                                    <button key={skill} onClick={() => setSelectedSkill(skill)}>
+                                        <span>{skill}</span>
+                                        <span>{citations.length}</span>
+                                        <FiArrowRight aria-hidden="true" />
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     )}
                 </div>

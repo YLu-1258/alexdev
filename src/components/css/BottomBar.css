@@ -160,4 +160,8 @@
     .bottom-meta {
         display: none;
     }
+
+    .button .label {
+        display: none;
+    }
 }

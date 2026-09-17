@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import "./css/BottomBar.css";
 import { Page } from "./types";
 import About from "../content/portfolio/about.tsx";
@@ -83,30 +83,10 @@ const ResponsiveButton: React.FC<{
   Icon: IconType;
   onClick: () => void;
 }> = ({ label, Icon, onClick }) => {
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const labelRef = useRef<HTMLSpanElement>(null);
-  const [showLabel, setShowLabel] = useState(true);
-
-  const updateLabelVisibility = useCallback(() => {
-    const buttonElement = buttonRef.current;
-    const labelElement = labelRef.current;
-    if (!buttonElement || !labelElement) return;
-
-    setShowLabel(buttonElement.clientWidth > 2 * labelElement.scrollWidth);
-  }, []);
-
-  useEffect(() => {
-    updateLabelVisibility();
-    window.addEventListener("resize", updateLabelVisibility);
-    return () => window.removeEventListener("resize", updateLabelVisibility);
-  }, [updateLabelVisibility]);
-
   return (
-    <div className="button" ref={buttonRef} data-section={label.toLowerCase()} onClick={onClick}>
+    <div className="button" data-section={label.toLowerCase()} onClick={onClick}>
         <Icon className="bottom-icon" />
-        <span className="label" ref={labelRef} style={{ display: showLabel ? "inline" : "none" }}>
-        {label}
-        </span>
+        <span className="label">{label}</span>
     </div>
     );
 };

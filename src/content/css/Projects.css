@@ -39,8 +39,8 @@
 }
 
 .project-card {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: minmax(104px, 28%) minmax(0, 1fr);
     align-items: center;
     background: #252526;
     border-radius: 10px;
@@ -82,7 +82,6 @@
 }
 
 .project-card .card-left {
-    flex: 0 0 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,19 +89,18 @@
 
 .project-card .project-image {
     width: 100%;
-    max-width: 96px;
-    height: 96px;
+    max-width: 88px;
+    height: 88px;
     border-radius: 8px;
     object-fit: contain;
 }
 
 .project-card .card-right {
-    flex: 1;
     padding-left: 14px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-self: stretch;
+    justify-content: center;
+    min-width: 0;
 }
 
 .project-title {
@@ -123,8 +121,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    margin-top: auto;
-    padding-top: 12px;
+    margin-top: 12px;
 }
 
 .project-skill-tag {
@@ -162,6 +159,7 @@
     }
 
     .project-card {
+        display: flex;
         flex-direction: column;
         align-items: center;
         min-height: 0;
@@ -170,6 +168,10 @@
 
     .project-card .card-left {
         margin-bottom: 0.5rem;
+    }
+
+    .project-card .card-right {
+        padding-left: 0;
     }
 
     .project-title {
