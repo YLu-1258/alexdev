@@ -46,7 +46,14 @@ const Courses: React.FC = () => {
                             <span className="semester-count">{semester.courses.length} courses</span>
                         </div>
 
-                        <div className="semester-courses">
+                        <div
+                            className="semester-courses"
+                            style={
+                                {
+                                    '--course-count': semester.courses.length,
+                                } as React.CSSProperties
+                            }
+                        >
                             {semester.courses.map((course) => (
                                 <article key={course.title} className="course-card">
                                     <div className="course-topline">
