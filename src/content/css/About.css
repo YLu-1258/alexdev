@@ -265,22 +265,54 @@
 
 .about-hero-photo {
     position: relative;
+    padding: 10px;
+    isolation: isolate;
+    background: color-mix(in srgb, var(--bg-surface) 84%, var(--bg-content));
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--card-border));
+    box-shadow: 12px 12px 0 color-mix(in srgb, var(--accent) 9%, transparent);
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.about-hero-photo::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    z-index: 1;
+    border: 1px solid color-mix(in srgb, var(--text-soft) 12%, transparent);
+    pointer-events: none;
+}
+
+.about-hero-photo::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20px;
+    z-index: 2;
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 56px 0 0 color-mix(in srgb, var(--accent) 32%, transparent);
+    pointer-events: none;
+}
+
+.about-hero-photo:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--card-border));
+    box-shadow: 14px 14px 0 color-mix(in srgb, var(--accent) 14%, transparent);
 }
 
 .about-headshot {
     width: clamp(170px, 20vw, 250px);
     height: clamp(220px, 28vw, 330px);
-    border-radius: 2px;
-    border: 1px solid var(--card-border);
+    border-radius: 0;
+    border: 0;
     filter: grayscale(1) contrast(1.04);
     animation: none;
-    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+    transition: filter 0.22s ease;
 }
 
-.about-headshot:hover {
-    transform: translateY(-3px);
+.about-hero-photo:hover .about-headshot {
     filter: grayscale(0.25) contrast(1.02);
-    box-shadow: 10px 10px 0 color-mix(in srgb, var(--accent) 13%, transparent);
 }
 
 .about-actions {
@@ -361,7 +393,14 @@
 
     .about-headshot {
         width: 100%;
-        height: 220px;
+        height: 240px;
+    }
+
+    .about-hero-photo {
+        width: min(100%, 430px);
+        margin-inline: auto;
+        box-sizing: border-box;
+        box-shadow: 8px 8px 0 color-mix(in srgb, var(--accent) 9%, transparent);
     }
 
     .about-title {
