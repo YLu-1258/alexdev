@@ -7,7 +7,7 @@ interface TabBarProps {
   tabs: Tab[];
   onCloseTab: (id: string) => void;
   activeTabId: string;
-  setActiveTabId: React.Dispatch<React.SetStateAction<string>>;
+  onActivateTab: (id: string) => void;
 }
 
 const iconFor = (type: Tab["type"]) => {
@@ -33,7 +33,7 @@ const iconFor = (type: Tab["type"]) => {
   }
 };
 
-const TabBar: React.FC<TabBarProps> = ({ tabs, onCloseTab, activeTabId, setActiveTabId }) => {
+const TabBar: React.FC<TabBarProps> = ({ tabs, onCloseTab, activeTabId, onActivateTab }) => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 
   // Optional: wheel scroll horizontally when hovering the bar (nice on mouse wheels)
@@ -60,7 +60,7 @@ const TabBar: React.FC<TabBarProps> = ({ tabs, onCloseTab, activeTabId, setActiv
           <div
             key={tab.id}
             className={`tab ${tab.id === activeTabId ? "active" : ""}`}
-            onClick={() => setActiveTabId(tab.id)}
+            onClick={() => onActivateTab(tab.id)}
             title={tab.title}
           >
             {iconFor(tab.type)}

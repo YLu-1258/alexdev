@@ -43,6 +43,7 @@ const BottomBar: React.FC<BottomBarProps> = ({ handleCreateTab }) => {
   const createPage = (p: (typeof pages)[number]): Page => ({
     title: p.title,
     type: p.type,
+    path: `~/portfolio/${p.type}.tsx`,
     content: p.element,
   });
 

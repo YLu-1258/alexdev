@@ -4,7 +4,10 @@ import "./css/FileTree.css";
 
 interface FileTreeProps {
   handleCreateBlog: (slug: string) => void;
+  onBrowsePath: (path: string) => void;
 }
+
+const pathSegment = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 
 type TreeNode =
   | {
@@ -52,8 +55,12 @@ function insertPath(root: TreeNode[], parts: string[], slug: string) {
 const BlogFile: React.FC<{
   node: Extract<TreeNode, { type: "blog" }>;
   onOpen: (slug: string) => void;
-}> = ({ node, onOpen }) => (
-  <div className="tree-item file" onClick={() => onOpen(node.slug)}>
+  onBrowsePath: (path: string) => void;
+}> = ({ node, onOpen, onBrowsePath }) => (
+  <div className="tree-item file" onClick={() => {
+    onBrowsePath(`~/portfolio/blog/${node.slug}.md`);
+    onOpen(node.slug);
+  }}>
     <FiFileText />
     <span>{node.name}</span>
   </div>
@@ -61,8 +68,10 @@ const BlogFile: React.FC<{
 
 const ExternalFile: React.FC<{
   node: Extract<TreeNode, { type: "external" }>;
-}> = ({ node }) => (
-  <div className="tree-item file">
+  path: string;
+  onBrowsePath: (path: string) => void;
+}> = ({ node, path, onBrowsePath }) => (
+  <div className="tree-item file" onClick={() => onBrowsePath(path)}>
     <FiFileText />
     <a
       href={node.href}
@@ -150,12 +159,17 @@ const tree: TreeNode[] = [
 const Folder: React.FC<{
   node: Extract<TreeNode, { type: "folder" }>;
   onOpen: (slug: string) => void;
-}> = ({ node, onOpen }) => {
+  path: string;
+  onBrowsePath: (path: string) => void;
+}> = ({ node, onOpen, path, onBrowsePath }) => {
   const [open, setOpen] = useState(true);
 
   return (
     <div className="tree-node">
-      <div className="tree-item folder" onClick={() => setOpen(!open)}>
+      <div className="tree-item folder" onClick={() => {
+        onBrowsePath(path);
+        setOpen(!open);
+      }}>
         {open ? <FiFolderMinus /> : <FiFolderPlus />}
         <span>{node.name}</span>
       </div>
@@ -164,12 +178,12 @@ const Folder: React.FC<{
         <div className="tree-children">
           {node.children.map((child, i) => {
             if (child.type === "folder") {
-                return <Folder key={i} node={child} onOpen={onOpen} />;
+                return <Folder key={i} node={child} onOpen={onOpen} path={`${path}/${pathSegment(child.name)}`} onBrowsePath={onBrowsePath} />;
             }
             if (child.type === "blog") {
-                return <BlogFile key={i} node={child} onOpen={onOpen} />;
+                return <BlogFile key={i} node={child} onOpen={onOpen} onBrowsePath={onBrowsePath} />;
             }
-            return <ExternalFile key={i} node={child} />;
+            return <ExternalFile key={i} node={child} path={`${path}/${pathSegment(child.name)}`} onBrowsePath={onBrowsePath} />;
           })}
         </div>
       )}
@@ -177,12 +191,12 @@ const Folder: React.FC<{
   );
 };
 
-const FileTree: React.FC<FileTreeProps> = ({ handleCreateBlog }) => {
+const FileTree: React.FC<FileTreeProps> = ({ handleCreateBlog, onBrowsePath }) => {
   return (
     <div className="file-tree">
       {tree.map((node, i) =>
         node.type === "folder" ? (
-          <Folder key={i} node={node} onOpen={handleCreateBlog} />
+          <Folder key={i} node={node} onOpen={handleCreateBlog} path={`~/portfolio/${pathSegment(node.name)}`} onBrowsePath={onBrowsePath} />
         ) : null
       )}
     </div>

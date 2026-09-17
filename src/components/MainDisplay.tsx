@@ -5,7 +5,7 @@ import { Tab } from './types';
 interface MainDisplayProps {
   tabs: Tab[];
   activeTabId: string | "0";
-  setActiveTabId: React.Dispatch<React.SetStateAction<string>>;
+  onActivateTab: (id: string) => void;
   setTabs: React.Dispatch<React.SetStateAction<Tab[]>>;
 }
 
@@ -13,7 +13,7 @@ const MainDisplay: React.FC<MainDisplayProps> = ({
   tabs,
   setTabs,
   activeTabId,
-  setActiveTabId,
+  onActivateTab,
 }) => {
   const onCloseTab = (id: string) => {
     const tabIndex = tabs.findIndex(tab => tab.id === id);
@@ -24,9 +24,9 @@ const MainDisplay: React.FC<MainDisplayProps> = ({
 
     if (newTabs.length > 0) {
       const nextActiveTab = newTabs[tabIndex] || newTabs[tabIndex - 1];
-      if (nextActiveTab) setActiveTabId(nextActiveTab.id);
+      if (nextActiveTab) onActivateTab(nextActiveTab.id);
     } else {
-      setActiveTabId("0");
+      onActivateTab("0");
     }
   };
 
@@ -36,7 +36,7 @@ const MainDisplay: React.FC<MainDisplayProps> = ({
         tabs={tabs}
         onCloseTab={onCloseTab}
         activeTabId={activeTabId}
-        setActiveTabId={setActiveTabId}
+        onActivateTab={onActivateTab}
       />
 
       <div className="content">

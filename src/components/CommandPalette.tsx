@@ -59,7 +59,7 @@ export default function CommandPalette({ open, onClose, onNavigate, onOpenBlog }
       label: s.label,
       hint: 'Section',
       icon: s.icon,
-      action: () => { onNavigate({ title: s.label, type: s.type, content: s.element }); onClose(); },
+      action: () => { onNavigate({ title: s.label, type: s.type, path: `~/portfolio/${s.type}.tsx`, content: s.element }); onClose(); },
     })),
     ...allPosts.map(p => ({
       id: p.slug,

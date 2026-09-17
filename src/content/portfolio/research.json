@@ -1,6 +1,16 @@
 {
     "publications": [
         {
+            "title": "Automated Discovery Has No Universally Superior Harness",
+            "venue": "LM4Sci @ COLM 2026",
+            "status": "Accepted",
+            "date": "Jul. 2026",
+            "authors": "Akshat Gupta, Alexander Lu, Jermaine Lei, Gopala Anumanchipalli, Leshem Choshen",
+            "description": "Decomposes automated-discovery systems into their core design choices and evaluates 30 budget-matched harnesses across 12 model-problem pairs with more than 3.1 million LLM rollouts. The results show that no fixed harness wins universally and motivate adaptive compute allocation guided by early performance.",
+            "arxiv": "https://arxiv.org/abs/2607.18235",
+            "tags": ["Automated Discovery", "LLM Agents", "Evolutionary Search", "Test-Time Training", "Adaptive Compute", "Statistical Evaluation"]
+        },
+        {
             "title": "Evolutionary Strategies lead to Catastrophic Forgetting in LLMs",
             "venue": "ACL 2026",
             "status": "Accepted",

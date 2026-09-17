@@ -51,15 +51,16 @@ const App: React.FC = () => {
   const [sidebarWidth, setSidebarWidth] = useState(236);
 
   const [tabs, setTabs] = useState<Tab[]>([
-    { id: "0", title: 'About', type: 'about', content: <About /> },
-    { id: "1", title: 'Experience', type: 'experience', content: <Experiences /> },
-    { id: "2", title: 'Research', type: 'research', content: <Research /> },
-    { id: "3", title: 'Projects', type: 'projects', content: <Projects /> },
-    { id: "4", title: 'Skills', type: 'skills', content: <Skills /> },
-    { id: "5", title: 'Courses', type: 'courses', content: <Courses /> },
-    { id: "6", title: 'Awards', type: 'awards', content: <Awards /> },
+    { id: "0", title: 'About', type: 'about', path: '~/portfolio/about.tsx', content: <About /> },
+    { id: "1", title: 'Experience', type: 'experience', path: '~/portfolio/experience.tsx', content: <Experiences /> },
+    { id: "2", title: 'Research', type: 'research', path: '~/portfolio/research.tsx', content: <Research /> },
+    { id: "3", title: 'Projects', type: 'projects', path: '~/portfolio/projects.tsx', content: <Projects /> },
+    { id: "4", title: 'Skills', type: 'skills', path: '~/portfolio/skills.tsx', content: <Skills /> },
+    { id: "5", title: 'Courses', type: 'courses', path: '~/portfolio/courses.tsx', content: <Courses /> },
+    { id: "6", title: 'Awards', type: 'awards', path: '~/portfolio/awards.tsx', content: <Awards /> },
   ]);
   const [activeTabId, setActiveTabId] = useState<string>("0");
+  const [browsedPath, setBrowsedPath] = useState<string | null>(null);
   const [theme, setTheme] = useState<ThemeMode>(getInitialTheme);
   const [font, setFont] = useState<FontMode>(() => getStored(FONT_KEY, 'fira', FONT_OPTIONS));
   const [effect, setEffect] = useState<EffectMode>(() => getStored(EFFECT_KEY, 'none', EFFECT_OPTIONS));
@@ -208,6 +209,7 @@ const App: React.FC = () => {
   const handleCreateTab = async (page: Page) => {
     const foundTab = tabs.find(tab => tab.title === page.title);
     if (foundTab) {
+      setBrowsedPath(null);
       setActiveTabId(foundTab.id);
       return;
     }
@@ -216,9 +218,16 @@ const App: React.FC = () => {
       title: page.title,
       type: page.type,
       content: page.content,
+      path: page.path,
     };
     setTabs(prev => [...prev, newTab]);
+    setBrowsedPath(null);
     setActiveTabId(newTab.id);
+  };
+
+  const handleActivateTab = (id: string) => {
+    setBrowsedPath(null);
+    setActiveTabId(id);
   };
 
   const handleCreateBlog = (slug: string) => {
@@ -227,6 +236,7 @@ const App: React.FC = () => {
       const missing: Page = {
         title: `Missing post: ${slug}`,
         type: "blog",
+        path: `~/portfolio/blog/${slug}.md`,
         content: <div style={{ padding: 18 }}>Couldn’t find blog post: {slug}</div>,
       };
       handleCreateTab(missing);
@@ -236,11 +246,15 @@ const App: React.FC = () => {
     const page: Page = {
       title: post.title,
       type: "blog",
+      path: `~/portfolio/blog/${slug}.md`,
       content: <BlogPostView post={post} onOpenBlog={handleCreateBlog} />,
     };
 
     handleCreateTab(page);
   };
+
+  const activeTab = tabs.find(tab => tab.id === activeTabId);
+  const currentPath = browsedPath ?? activeTab?.path ?? '~/portfolio';
 
   return (
     <div className="app" data-theme={theme} data-font={font} data-effects={effect} ref={appRef}>
@@ -249,6 +263,7 @@ const App: React.FC = () => {
         theme={theme}
         font={font}
         effect={effect}
+        currentPath={currentPath}
         onThemeChange={setTheme}
         onFontChange={setFont}
         onEffectChange={setEffect}
@@ -264,7 +279,7 @@ const App: React.FC = () => {
             onMouseDown={(e) => e.preventDefault()}
           >
             <div className="app-sidebar-content">
-              <FileTree handleCreateBlog={handleCreateBlog} />
+              <FileTree handleCreateBlog={handleCreateBlog} onBrowsePath={setBrowsedPath} />
             </div>
             <div className="app-sidebar-resizer" onMouseDown={startResizing} />
           </div>
@@ -274,7 +289,7 @@ const App: React.FC = () => {
           tabs={tabs}
           setTabs={setTabs}
           activeTabId={activeTabId}
-          setActiveTabId={setActiveTabId}
+          onActivateTab={handleActivateTab}
         />
 
       </div>
