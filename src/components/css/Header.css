@@ -134,20 +134,6 @@
     color: var(--accent);
 }
 
-.control-chevron {
-    position: absolute;
-    right: 5px;
-    width: 9px;
-    height: 9px;
-    color: var(--text-muted);
-    transition: transform 0.22s ease, color 0.18s ease;
-}
-
-.control-menu.open .control-chevron {
-    color: var(--accent);
-    transform: rotate(180deg);
-}
-
 .control-dropdown {
     position: absolute;
     z-index: 1;
@@ -333,7 +319,6 @@
 @media (prefers-reduced-motion: reduce) {
     .control-trigger,
     .control-icon,
-    .control-chevron,
     .control-dropdown,
     .control-option {
         transition-duration: 0.01ms !important;

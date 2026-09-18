@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FiCheck, FiChevronDown, FiDroplet, FiType, FiZap } from 'react-icons/fi';
+import { FiCheck, FiDroplet, FiType, FiZap } from 'react-icons/fi';
 import './css/Header.css';
 
 type ThemeMode = 'dark' | 'light' | 'ocean' | 'sunset' | 'forest' | 'nord' | 'midnight' | 'rose';
@@ -107,7 +107,6 @@ const Header: React.FC<HeaderProps> = ({
                     onClick={() => setOpenControl(isOpen ? null : key)}
                 >
                     <ControlIcon className="control-icon" aria-hidden="true" />
-                    <FiChevronDown className="control-chevron" aria-hidden="true" />
                 </button>
                 <div
                     className="control-dropdown"
