@@ -86,6 +86,10 @@
     --control-border: color-mix(in srgb, var(--card-border) 78%, transparent);
 }
 
+.control-menu.open {
+    z-index: 10;
+}
+
 .control-trigger {
     position: relative;
     z-index: 2;
@@ -146,7 +150,7 @@
     padding: calc(var(--control-size) + 6px) 6px 6px;
     border: 1px solid var(--control-border);
     border-radius: var(--control-radius);
-    background: color-mix(in srgb, var(--bg-elevated) 96%, transparent);
+    background: var(--bg-elevated);
     box-shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
     backdrop-filter: blur(18px) saturate(1.15);
     -webkit-backdrop-filter: blur(18px) saturate(1.15);
