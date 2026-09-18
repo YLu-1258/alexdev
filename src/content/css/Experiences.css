@@ -7,7 +7,7 @@
     color: #dcdcdc;
     background-color: #1e1e1ea9;
     border-radius: 8px;
-    max-width: 800px;
+    max-width: 1080px;
     margin: auto;
 }
 
@@ -32,7 +32,8 @@
 
 /* Timeline container */
 .experiences-grid {
-    --timeline-x: 12px;
+    --timeline-gutter: 148px;
+    --timeline-x: var(--timeline-gutter);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -58,10 +59,34 @@
 /* Each timeline row */
 .timeline-item {
     position: relative;
-    padding-left: 28px;
+    padding-left: calc(var(--timeline-gutter) + 30px);
     padding-bottom: 20px;
     animation: slide-in 0.45s ease both;
     animation-delay: calc(var(--i, 0) * 90ms + 300ms);
+}
+
+.timeline-date {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: calc(var(--timeline-gutter) - 24px);
+    color: var(--text-muted, #888);
+    font-size: 0.75rem;
+    line-height: 1.45;
+    letter-spacing: 0.025em;
+    text-align: right;
+    text-wrap: balance;
+    transition: color 0.2s ease;
+}
+
+.timeline-date::after {
+    content: '';
+    position: absolute;
+    top: 0.62em;
+    right: -18px;
+    width: 12px;
+    height: 1px;
+    background: var(--card-border);
 }
 
 .timeline-dot {
@@ -83,13 +108,17 @@
     box-shadow: 0 0 8px color-mix(in srgb, var(--accent, #4fc3f7) 60%, transparent);
 }
 
+.timeline-item:hover .timeline-date {
+    color: var(--text-soft, #b0b0b0);
+}
+
 /* Card */
 .experience-card {
     display: flex;
     align-items: flex-start;
     background: #252526;
     border-radius: 10px;
-    padding: 18px 20px;
+    padding: 20px 22px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     border-left: 3px solid transparent;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
@@ -101,8 +130,8 @@
     border-left-color: var(--accent, #4fc3f7);
 }
 
-.card-left {
-    flex: 0 0 28%;
+.experience-card .card-left {
+    flex: 0 0 23%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -111,15 +140,15 @@
 
 .experience-image {
     width: 100%;
-    max-width: 160px;
+    max-width: 150px;
     height: auto;
     border-radius: 8px;
     object-fit: contain;
 }
 
-.card-right {
+.experience-card .card-right {
     flex: 1;
-    padding-left: 15px;
+    padding-left: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -129,13 +158,6 @@
     color: var(--accent, #4fc3f7);
     font-weight: bold;
     margin: 0 0 2px 0;
-}
-
-.experience-years {
-    font-size: 0.7rem;
-    color: #888;
-    display: block;
-    margin-bottom: 4px;
 }
 
 .experience-position {
@@ -199,26 +221,55 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 860px) {
+    .experiences-grid {
+        --timeline-gutter: 118px;
+    }
+}
+
+@media (max-width: 700px) {
     .experiences-grid {
         --timeline-x: 10px;
+        --timeline-gutter: 0px;
     }
 
     .timeline-item {
         padding-left: 22px;
     }
 
+    .timeline-date {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: block;
+        width: auto;
+        margin: 0 0 9px;
+        color: var(--text-soft, #b0b0b0);
+        text-align: left;
+    }
+
+    .timeline-date::after {
+        display: none;
+    }
+
+    .timeline-dot {
+        top: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+
     .experience-card {
         flex-direction: column;
     }
 
-    .card-left {
+    .experience-card .card-left {
         margin-bottom: 10px;
         width: 100%;
         flex: unset;
     }
 
-    .card-right {
+    .experience-card .card-right {
         padding-left: 0;
     }
 }

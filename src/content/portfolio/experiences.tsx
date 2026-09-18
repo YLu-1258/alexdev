@@ -39,6 +39,7 @@ const Experiences: React.FC = () => {
                         className="timeline-item"
                         style={{ '--i': index } as React.CSSProperties}
                     >
+                        <time className="timeline-date">{experience.years}</time>
                         <div className="timeline-dot" />
                         <div className="experience-card">
                             <div className="card-left">
@@ -46,7 +47,6 @@ const Experiences: React.FC = () => {
                             </div>
                             <div className="card-right">
                                 <h2 className="experience-title">{experience.company}</h2>
-                                <span className="experience-years">{experience.years}</span>
                                 <h4 className="experience-position">{experience.position}</h4>
                                 <ul className="experience-details">
                                     {experience.description.map((description, i) => (
