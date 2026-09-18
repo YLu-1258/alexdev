@@ -7,21 +7,9 @@
                 "Building heatmap visualizer to statistically determine regressions and improvements across 300+ software and hardware builds.",
                 "Implementing unsupervised time-series anomaly detection and root cause analysis across hardware data from 200+ devices."
             ],
-            "years": "April 2026 – Present",
+            "years": "April 2026 – August 2026",
             "picture": "/img/apple.png",
             "skills": ["Hardware Automation", "Time Series Analysis", "Anomaly Detection", "Agent Harnesses", "PostgreSQL", "Python", "Statistical Modeling", "Data Visualization", "Robotics", "Dependency Management", "CI/CD Pipelines"]
-        },
-        {
-            "company": "Amazon – Traffic Engineering",
-            "position": "Software Development Engineer Intern",
-            "description": [
-                "Built an agentic AI orchestration on AWS to automate CDN deployments across 20+ global regions.",
-                "Enabled safe, human-in-the-loop traffic shifts at 300K+ TPM in under 10 minutes with GenAI monitoring and validation.",
-                "Reduced deployment time by 59% and cut potential human error points by 82%, improving production reliability."
-            ],
-            "years": "January 2026 – April 2026",
-            "picture": "/img/amazon.jpg",
-            "skills": ["AWS", "Distributed Systems", "Python", "TypeScript/HTML/CSS", "Tampermonkey", "Agent Harnesses", "CI/CD Pipelines"]
         },
         {
             "company": "Berkeley AI Research – Berkeley Speech Group",
@@ -35,6 +23,18 @@
             "years": "May 2025 – Present",
             "picture": "/img/BAIR.png",
             "skills": ["Reinforcement Learning", "LLM Fine-Tuning", "Python", "PyTorch", "vERL", "Tree Search Algorithms", "Continual Learning", "Agent Harnesses"]
+        },
+        {
+            "company": "Amazon – Traffic Engineering",
+            "position": "Software Development Engineer Intern",
+            "description": [
+                "Built an agentic AI orchestration on AWS to automate CDN deployments across 20+ global regions.",
+                "Enabled safe, human-in-the-loop traffic shifts at 300K+ TPM in under 10 minutes with GenAI monitoring and validation.",
+                "Reduced deployment time by 59% and cut potential human error points by 82%, improving production reliability."
+            ],
+            "years": "January 2026 – April 2026",
+            "picture": "/img/amazon.jpg",
+            "skills": ["AWS", "Distributed Systems", "Python", "TypeScript/HTML/CSS", "Tampermonkey", "Agent Harnesses", "CI/CD Pipelines"]
         },
         {
             "company": "UCSF Weill Institute for Neurosciences – Chen Lab",
