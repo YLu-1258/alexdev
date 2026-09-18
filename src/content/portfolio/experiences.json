@@ -1,17 +1,6 @@
 {
     "experiences" : [
         {
-            "company": "Apple – Hardware Automation",
-            "position": "Applied AI SWE Intern",
-            "description": [
-                "Building heatmap visualizer to statistically determine regressions and improvements across 300+ software and hardware builds.",
-                "Implementing unsupervised time-series anomaly detection and root cause analysis across hardware data from 200+ devices."
-            ],
-            "years": "April 2026 – August 2026",
-            "picture": "/img/apple.png",
-            "skills": ["Hardware Automation", "Time Series Analysis", "Anomaly Detection", "Agent Harnesses", "PostgreSQL", "Python", "Statistical Modeling", "Data Visualization", "Robotics", "Dependency Management", "CI/CD Pipelines"]
-        },
-        {
             "company": "Berkeley AI Research – Berkeley Speech Group",
             "position": "Machine Learning Researcher",
             "description": [
@@ -23,6 +12,17 @@
             "years": "May 2025 – Present",
             "picture": "/img/BAIR.png",
             "skills": ["Reinforcement Learning", "LLM Fine-Tuning", "Python", "PyTorch", "vERL", "Tree Search Algorithms", "Continual Learning", "Agent Harnesses"]
+        },
+        {
+            "company": "Apple – Hardware Automation",
+            "position": "Applied AI SWE Intern",
+            "description": [
+                "Building heatmap visualizer to statistically determine regressions and improvements across 300+ software and hardware builds.",
+                "Implementing unsupervised time-series anomaly detection and root cause analysis across hardware data from 200+ devices."
+            ],
+            "years": "April 2026 – August 2026",
+            "picture": "/img/apple.png",
+            "skills": ["Hardware Automation", "Time Series Analysis", "Anomaly Detection", "Agent Harnesses", "PostgreSQL", "Python", "Statistical Modeling", "Data Visualization", "Robotics", "Dependency Management", "CI/CD Pipelines"]
         },
         {
             "company": "Amazon – Traffic Engineering",
